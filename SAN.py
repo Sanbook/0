@@ -1,14 +1,5 @@
 #!/usr/bin/python
 
- * Author  : Susanto
- * Name    : Facebook Toolkit++
- * Version : 1.4
- * Update  : 13 June 2019
- * 
- * If you are a reliable programmer or the best developer, please don't change anything.
- * If you want to be appreciated by others, then don't change anything in this script.
- * Please respect me for making this tool from the beginning.
- 
 #                     GENERATE ACCESS TOKEN
 def get(data_U):
 	print 'Membuat Acces Token '
