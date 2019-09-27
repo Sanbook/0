@@ -48,7 +48,7 @@ def logo():
 		name = a['name']
 		n.append(a['name'])
 		print ' '
-                print (G +' O'+ R +'  O'+ W +'  O' + name + )
+                print (G +' O'+ R +'  O'+ W +'  O' '+ name +')
        	   	print R + '╔═══════════╗'
         	print R + '║  ╔═╗      ║' + G +'SYNDICATED ACCOUNT NETWORKING'
         	print R + '║  ╚═╗╔═╗   ║' + G +'FACEBOOK CYBER CRIME INDEPENDENT'
