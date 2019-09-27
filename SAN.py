@@ -1,6 +1,11 @@
 ###################################################################
 #                        Import Module
 import json , sys , hashlib , os , time , marshal, getpass
+###################################################################
+'''
+     Jangan Direcode ya bosku , tinggal make apa susahnya sih
+'''
+###################################################################
 #                             COLOR
 if sys.platform in ["linux","linux2"]:
 	W = "\033[0m"
@@ -158,7 +163,7 @@ def get(data):
 		b.close()
 		print '[*] successfully membuat kode masuk...'
 		print '[*] Your access token is stored in cookie/token.log'
-		exit()
+		halaman_utaman()
 	except KeyError:
 		print '[!] Failed to membuat kode masuk...'
 		print '[!] Check your connection / email or password'
@@ -169,7 +174,7 @@ def get(data):
 		print '[!] Connection error !!!'
 		os.remove('cookie/token.log')
 		main()
-		
+
 def getdata():
 	global a , token
 
@@ -524,7 +529,7 @@ def menu_reaction_ask():
   try:
 	global type
 
-	cek = raw_input(R + 'Menu' + W + '/' + R + 'Bot' + W + '/' + R + 'Reaction' + W + ' : ')
+	cek = raw_input(R + 'MENU' + W + '/' + R + 'Bot' + W + '/' + R + 'Reaction' + W + ' : ')
 
 	if cek in ['1','01']:
 		type = 'LIKE'
@@ -606,7 +611,7 @@ def bot():
   try:
 	global type , message , id , WT , token
 
-	cek = raw_input(R + 'Menu' + W +'/' + R +'Bot ' + W + ': ')
+	cek = raw_input(R + 'MENU' + W +'/' + R +'Bot ' + W + ': ')
 
 	if cek in ['1','01']:
 		menu_reaction()
@@ -1150,7 +1155,7 @@ def main():
   global target_id
 
   try:
-	cek = raw_input(R + 'Menu' + W +' : ')
+	cek = raw_input(R + 'MENU' + W +' : ')
 
 	if cek.lower() == 'get_data':
 		if len(jml) == 0:
