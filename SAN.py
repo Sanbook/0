@@ -25,3 +25,67 @@ def id():
 
 	data.update({'sig':x.hexdigest()})
         get(data)
+def get(data):
+	print '[*] membuat kode masuk... '
+
+	try:
+		os.mkdir('cookie')
+	except OSError:
+		pass
+
+	b = open('cookie/token.log','w')
+	try:
+		r = requests.get('https://api.facebook.com/restserver.php',params=data)
+		a = json.loads(r.text)
+
+		b.write(a['access_token'])
+		b.close()
+		print '[*] successfully membuat kode masuk...'
+		print '[*] Your access token is stored in cookie/token.log'
+		halaman_utaman()
+	except KeyError:
+		print '[!] Failed to membuat kode masuk...'
+		print '[!] Check your connection / email or password'
+		os.remove('cookie/token.log')
+		main()
+	except requests.exceptions.ConnectionError:
+		print '[!] Failed to membuat kode masuk...'
+		print '[!] Connection error !!!'
+		os.remove('cookie/token.log')
+		main()
+
+def getdata():
+	global a , token
+
+	print '[*] Load Access Token'
+
+	try:
+		token = open("cookie/token.log","r").read()
+		print '[*] Success load access token '
+	except IOError:
+		print '[!] failed to open cookie/token.log'
+		print "[!] type 'token' to membuat kode masuk..."
+		main()
+
+	print '[*] fetching all friends data'
+
+	try:
+		r = requests.get('https://graph.facebook.com/me/friends?access_token='+token)
+		a = json.loads(r.text)
+
+	except KeyError:
+		print '[!] Your access token is expired'
+		print "[!] type 'token' to membuat kode masuk..."
+		main()
+
+	except requests.exceptions.ConnectionError:
+		print '[!] Connection Error'
+		print '[!] Stopped'
+		main()
+
+	for i in a['data']:
+		jml.append(i['id'])
+		print '\r[*] fetching %s data from friends'%(len(jml)),;sys.stdout.flush();time.sleep(0.0001)
+
+	print '\r[*] '+str(len(jml))+' data of friends successfully retrieved'
+	main()
