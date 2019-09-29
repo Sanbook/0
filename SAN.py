@@ -47,6 +47,7 @@ def logo():
 		a = json.loads(r.text)
 		name = a['name']
 		n.append(a['name'])
+		print '''
         print (R + '╔'+ G +' O'+ R +'  O'+ W +'  O' + name + )
         ╠═══════════╗
         ║  ╔═╗      ║ SYNDICATED ACCOUNT NETWORKING
@@ -54,7 +55,7 @@ def logo():
         ║  ╚═╝╠═╩╗  ║ OFFICIAL MODUL  PROGRAM  NGUYEN ID═╗
         ║     ╚══╝SanBookManage  By  Soesanto  And  Team ║
         ╠══════Versi Beta════════════════════════════════╝
-		print ' '
+		print '''
 		halaman_utaman()
 
 	except (KeyError,IOError)
