@@ -49,29 +49,12 @@ def logo():
 		n.append(a['name'])
 		print ' '
                 print (G +' O'+ R +'  O'+ W +'  O' '+ name +')
-       	   	print R + '╔═══════════╗'
-        	print R + '║  ╔═╗      ║' + G +'SYNDICATED ACCOUNT NETWORKING'
-        	print R + '║  ╚═╗╔═╗   ║' + G +'FACEBOOK CYBER CRIME INDEPENDENT'
-        	print R + '║  ╚═╝╠═╩╗  ║' + G +'OFFICIAL MODUL  PROGRAM  NGUYEN ID═╗'
-        	print R + '║     ╚══╝'+ G +'SanBook'  + W +'Manage  By  Soesanto And Team ║'
-        	print R + '╠══════'+ G +'Versi Beta'+ R +'════════════════════════════════╝'
 		print ' '
 		halaman_utaman()
 
 	except (KeyError,IOError)
 		print ' '
-        	print R + '╔ O  O  O'
-        	print R + '╠═══════════╗'
-        	print R + '║  ╔═╗      ║ SYNDICATED ACCOUNT NETWORKING'
-        	print R + '║  ╚═╗╔═╗   ║ FACEBOOK CYBER CRIME INDEPENDENT'
-        	print R + '║  ╚═╝╠═╩╗  ║ OFFICIAL MODUL  PROGRAM  NGUYEN ID═╗'
-        	print R + '║     ╚══╝SanBook  Manage  By  Soesanto And Team ║'
-        	print R + '╠══════Versi Beta════════════════════════════════╣'
-        	print R + '║                     ╔═════╗                    ║'
-        	print R + '║                     ║ OOF ║                    ║'
-        	print R + '║                     ║ LINE║                    ║'
-        	print R + '║                     ╚═════╝                    ║'
-        	print R + '╚═════════Hei, kamu belum login facebook!════════╝'
+        	print R + 'LOG OUT'
 		print ' '
 		id()
 ####################################################################
