@@ -52,7 +52,7 @@ def logo():
 		print ' '
 		halaman_utaman()
 
-	except (KeyError,IOError)
+	except (KeyError)
 		print ' '
         	print R + 'LOG OUT'
 		print ' '
