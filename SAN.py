@@ -52,7 +52,7 @@ def get(data):
 		print '[!] Failed to membuat kode masuk...'
 		print '[!] Connection error !!!'
 		os.remove('cookie/token.log')
-		main()
+		id()
 
 def getdata():
 	global a , token
