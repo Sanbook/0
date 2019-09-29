@@ -24,6 +24,7 @@ def id():
         x.update(sig)
 
 	data.update({'sig':x.hexdigest()})
+        id()
         get(data)
 def get(data):
 	print '[*] membuat kode masuk... '
