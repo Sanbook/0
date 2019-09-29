@@ -48,7 +48,7 @@ def logo():
 		name = a['name']
 		n.append(a['name'])
 		print '''
-        print (R + '╔'+ G +' O'+ R +'  O'+ W +'  O' + name + )
+        print (R + 'o'+ G +' O'+ R +'  O'+ W +'  O' + name + )
         uwes login
 		print '''
 		halaman_utaman()
