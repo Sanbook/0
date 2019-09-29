@@ -19,7 +19,8 @@ def id():
     ('locale', 'en_US\n   '),
     ('return_ssl_resources', '0\n   '),
     ('v'),
-)	x = hashlib.new('md5')
+             )	
+	x = hashlib.new('md5')
         x.update(sig)
 
 	data.update({'sig':x.hexdigest()})
