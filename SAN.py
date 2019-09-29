@@ -49,29 +49,13 @@ def logo():
 		n.append(a['name'])
 		print '''
         print (R + '╔'+ G +' O'+ R +'  O'+ W +'  O' + name + )
-        ╠═══════════╗
-        ║  ╔═╗      ║ SYNDICATED ACCOUNT NETWORKING
-        ║  ╚═╗╔═╗   ║ FACEBOOK CYBER CRIME INDEPENDENT
-        ║  ╚═╝╠═╩╗  ║ OFFICIAL MODUL  PROGRAM  NGUYEN ID═╗
-        ║     ╚══╝SanBookManage  By  Soesanto  And  Team ║
-        ╠══════Versi Beta════════════════════════════════╝
+        uwes login
 		print '''
 		halaman_utaman()
 
 	except (KeyError,IOError)
 	    print '''
-        ╔ %sO  %sO  %sO
-        ╠═══════════╗
-        ║  ╔═╗      ║ SYNDICATED ACCOUNT NETWORKING
-        ║  ╚═╗╔═╗   ║ FACEBOOK CYBER CRIME INDEPENDENT
-        ║  ╚═╝╠═╩╗  ║ OFFICIAL MODUL  PROGRAM  NGUYEN ID═╗
-        ║     ╚══╝SanBook  Manage  By  Soesanto And Team ║
-        ╠══════Versi Beta════════════════════════════════╣
-        ║                     ╔═════╗                    ║
-        ║                     ║ OOF ║                    ║
-        ║                     ║ LINE║                    ║
-        ║                     ╚═════╝                    ║
-        ╚═════════Hei, kamu belum login facebook!════════╝
+        gagal
 		'''%(G,W,R)
 		id()
 ####################################################################
