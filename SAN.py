@@ -59,7 +59,7 @@ def cssLoginWarning():
 	
 	print '''
 %s------------
-⚠WARNING!!
+[⚠WARNING!!]
 ------------%s
  			Masukan user name facebook kamu, bisa ID,
  			bisa Email, bisa Nomor Telpon diterminal!
