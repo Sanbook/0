@@ -59,8 +59,7 @@ def cssLoginWarning():
 	
 	print '''
 %s------------
-[⚠WARNING!!]
-------------%s
+[⚠WARNING!!]%s
  			Masukan user name facebook kamu, bisa ID,
  			bisa Email, bisa Nomor Telpon diterminal!
  			Untuk kata sandi  seusai  ENTER  Username
@@ -73,14 +72,12 @@ def cssLoginWarning():
 def UserValidation():
 	
 	print '''
-	%s-----------------------
 	Tulis Username disini :
 '''%(R)
 
 def UserValidati0n()
 	print '''
 	%sTulis Password disini :
-	-----------------------
 '''%(R)
 def cssEror()
 	print '''
@@ -181,16 +178,7 @@ def search():
 
 def cssMain():
 	print '''
-	%so %so %so %s═══════════════╗    ╔════════╗   ╔════╗ 
-    ╔═╗ ╔═╗ ╔═╗╔═╗%sPROGRAM║╔╗  ║ %sNGUYEN%s ║   ║%sV.01%s║   ╔══╗
-    ╚═╗ ╠═╣ ║ ║╠═╩╗╔═╗╔═╗╠╣   ╚════════╝   ╚════╝   ╚══╝
-    ╚═╝%sSOESANTO%s╚══╝╚═╝╚═╝╝╚╝ 
-
-    %s╔═%sSanBook%s══════════════════════════════════════════╗
-    ║  ╔════════╗        ╔════════╗        ╔════════╗  ║
-    ║  ║  %sMasuk%s ║        ║ %sKeluar%s ║        ║ %sUpdate%s ║  ║
-    ║  ╚════════╝        ╚════════╝        ╚════════╝  ║
-    ╚══════════════════════════════════════════════════╝
+Masuk		Keluar		Update
 
 '''%(R,W,G,)  
 
@@ -198,7 +186,7 @@ def main():
   global target_id
 
   try:
-	cek = raw_input(R + 'D3b2y' + W +' >> ')
+	cek = raw_input(R + 'Nguyen' + W +' >> ')
 
 	if cek.lower() == 'get_data':
 		if len(menghitung) == 0:
@@ -242,16 +230,7 @@ def main():
 			main()
 def cssMenu():
 	print '''
-o o o ═══════════════╗    ╔════════╗   ╔════╗ 
-╔═╗ ╔═╗ ╔═╗╔═╗PROGRAM║╔╗  ║RECYCLE ║   ║    ║   ╔══╗   ╔═╗
-╚═╗ ╠═╣ ║ ║╠═╩╗╔═╗╔═╗╠╣   ╚════════╝   ╚════╝   ╚══╝   ╚═╝
-╚═╝SOESANTO╚══╝╚═╝╚═╝╝╚╝ [⚠] Tolong matikan VPNnya yah!!!
-
-    %s╔═%sSanBook%s══════════════════════════════════════════╗
-    ║  ╔════════╗        ╔════════╗        ╔════════╗  ║
-    ║  ║ Profil ║        ║Toolkit ║        ║Recycle ║  ║
-    ║  ╚════════╝        ╚════════╝        ╚════════╝  ║
-    ╚══════════════════════════════════════════════════╝
+	Profil		Toolkit		Recycle
 
 '''%(R,W,G,)  
 def menu():
@@ -259,7 +238,7 @@ def menu():
   	global getElement_id
 
   	try:
-	cek = raw_input(R + 'D3b2y' + W +' >> ')
+	cek = raw_input(R + 'Nguyen' + W +' >> ')
 
 	if cek.lower() == 'Profil':
 		if len(menghitung) == 0:
@@ -323,7 +302,7 @@ def menuProfile():
   	global getElement_id
 
   	try:
-	cek = raw_input(R + 'D3b2y' + W +' >> ')
+	cek = raw_input(R + 'Nguyen' + W +' >> ')
 
 	if cek.lower() == 'get_data':
 		if len(menghitung) == 0:
