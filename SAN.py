@@ -1,5 +1,5 @@
 #Python 3.7.X
-#Author				: Soesanto ©2019
+#Author				: Soesanto
 #Program Name		: Nguyen
 #Program Language	: Python
 #Manage Program Using Sanbook With SAN-Brother Team
