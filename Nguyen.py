@@ -122,7 +122,7 @@ def deletePost():
     )
 		response = requests.delete('https://graph.facebook.com/'+'i['id']', params=data).json()
 		try:
-			4O4=response['error']['message']
+			cuk=response['error']['message']
 			print(m+'[×] Failed')
 		except TypeError:
 			print(m+'['+h+' Deleted '+m+'] '+p+i['id']),;sys.stdout.flush();time.sleep(0.001)
@@ -157,7 +157,7 @@ def deleteAlbums():
     )
 		response = requests.delete('https://graph.facebook.com/'+'i['id']', params=data).json()
 		try:
-			4O4=response['error']['message']
+			cuk=response['error']['message']
 			print(m+'[×] Failed'+i['name'])
 		except TypeError:
 			print(m+'['+h+' Deleted '+m+'] '+p+i['name']),;sys.stdout.flush();time.sleep(0.001)
@@ -193,7 +193,7 @@ def deletePhoto():
     )
 		response = requests.delete('https://graph.facebook.com/'+'i['id']', params=data).json()
 		try:
-			4O4=response['error']['message']
+			cuk=response['error']['message']
 			print(m+'[×] Failed'+i['id'])
 		except TypeError:
 			print(m+'['+h+' Deleted '+m+'] '+p+i['id']),;sys.stdout.flush();time.sleep(0.001)
@@ -225,7 +225,7 @@ def unfriend():
     )
 		response = requests.delete('https://graph.facebook.com/'+'i['id']', params=data).json()
 		try:
-			4O4=response['error']['message']
+			cuk=response['error']['message']
 			print(m+'[×] Failed'+i['name'])
 		except TypeError:
 			print(m+'['+h+' Unfriends '+m+'] '+p+i['name']),;sys.stdout.flush();time.sleep(0.001)
