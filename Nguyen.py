@@ -246,7 +246,7 @@ if __name__=='__main__':
 		data = {"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":id,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pwd,"return_ssl_resources":"0","v":"1.0"};
 		sig = 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.0'+API_SECRET
 		x = hashlib.new('md5')
-        x.update(sig.encode('utf-8'))
+        x.update(sig.encode('utf-8')
 		data.update({'sig':x.hexdigest()})
 		response = requests.get('https://api.facebook.com/restserver.php', params=data).json()
 			nguyen=open('cookie/token.log','w')
