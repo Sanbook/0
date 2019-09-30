@@ -74,7 +74,7 @@ def UserValidation():
 	Tulis Username disini :
 '''%(R)
 
-def UserValidati0n()
+def UserValidati0n():
 	print '''
 	%sTulis Password disini :
 '''%(R)
