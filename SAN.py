@@ -55,7 +55,8 @@ def baliho():
 		print (W + '     [' + G +'Mohon login'+ W + ']')
 		print ' '
 
-def cssLoginWarning()
+def cssLoginWarning():
+	
 	print '''
 %s------------
 ⚠WARNING!!
@@ -69,7 +70,8 @@ def cssLoginWarning()
   tidak bekerja dengan sempurna!
 '''%(R,W,G)
 
-def UserValidation()
+def UserValidation():
+	
 	print '''
 	%s-----------------------
 	Tulis Username disini :
