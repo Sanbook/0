@@ -104,7 +104,6 @@ def post():
 		os.system('rm -rf token.txt')
 		login()
 	response = requests.get('https://graph.facebook.com/me&access_token%7Btoken%7D&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3')
-		os.system('clear')
 	print(logo)
 	print(p+40*'_')
 	print(m+'\n['+p+'+'+m+']'+h+' From '+p+': '+response['name'])
