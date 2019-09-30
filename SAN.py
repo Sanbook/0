@@ -78,7 +78,7 @@ def UserValidati0n():
 	print '''
 	%sTulis Password disini :
 '''%(R)
-def cssEror()
+def cssEror():
 	print '''
 eror
                          
