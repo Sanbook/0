@@ -118,7 +118,7 @@ def deletePost():
     ('method', 'DELETE'),
     ('access_token', 'token'),
     )
-		response = requests.delete('https://graph.facebook.com/'+'i['id']', params=data).json()
+		response = requests.delete('https://graph.facebook.com/'+i['id'], params=data).json()
 		try:
 			cuk=response['error']['message']
 			print(m+'[×] Failed')
@@ -151,7 +151,7 @@ def deleteAlbums():
     ('method', 'DELETE'),
     ('access_token', 'token'),
     )
-		response = requests.delete('https://graph.facebook.com/'+'i['id']', params=data).json()
+		response = requests.delete('https://graph.facebook.com/'+i['id'], params=data).json()
 		try:
 			cuk=response['error']['message']
 			print(m+'[×] Failed'+i['name'])
@@ -185,7 +185,7 @@ def deletePhoto():
     ('method', 'DELETE'),
     ('access_token', 'token'),
     )
-		response = requests.delete('https://graph.facebook.com/'+'i['id']', params=data).json()
+		response = requests.delete('https://graph.facebook.com/'+i['id'], params=data).json()
 		try:
 			cuk=response['error']['message']
 			print(m+'[×] Failed'+i['id'])
@@ -215,7 +215,7 @@ def unfriend():
     ('method', 'DELETE'),
     ('access_token', 'token'),,
     )
-		response = requests.delete('https://graph.facebook.com/'+'i['id']', params=data).json()
+		response = requests.delete('https://graph.facebook.com/'+i['id'], params=data).json()
 		try:
 			cuk=response['error']['message']
 			print(m+'[×] Failed'+i['name'])
