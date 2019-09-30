@@ -225,7 +225,7 @@ def unfriend():
 if __name__=='__main__':
 	os.system('clear')
 	try:
-		os.mkdir('result/token.txt')
+		os.mkdir('result')
 	except OSError:
 		pass
 	try:
