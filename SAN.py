@@ -10,16 +10,6 @@ import json,sys,hashlib,os,time
 from requests import requests
 from getpass import getpass
 
-if sys.platform in ["linux","linux2"]:
-
-	W = "\033[0m"
-    G = '\033[32;1m'
-    R = '\033[31;1m'
-else:
-	W = ''
-	G = ''
-	R = ''
-
 try:
 	import requests
 except ImportError:
@@ -60,11 +50,11 @@ def cssMain():
 	[1.] Masuk
 	[2.] Keluar
 	[3.] Update
-'''%(R,W,G,)  
+''')  
 
 def cssLoginWarning():
 	print '''
-%s[WARNING!!]%s
+[WARNING!!]
  			Masukan user name facebook kamu, bisa ID,
  			bisa Email, bisa Nomor Telpon diterminal!
  			Untuk kata sandi  seusai  ENTER  Username
@@ -72,30 +62,30 @@ def cssLoginWarning():
 
 * mohon hubungi kami jika terjadi eror atau program
   tidak bekerja dengan sempurna!
-'''%(R,W,G)
+''')
 
 def UserValidation():
 	print '''
-	%sTulis Username disini :
-'''%(R)
+	Tulis Username disini :
+''')
 
 def UserValidati0n():
 	print '''
-	%sTulis Password disini :
-'''%(R)
+	Tulis Password disini :
+''')
 
 def cssMenu():
 	print '''
 	[1.] Profil
 	[2.] Toolkit
 	[3.] Recycle
-'''%(R,W,G,)  
+''')  
 
 def cssMenuProfile():
 	print '''
 	[1.] Profil Guard
 	[2.] Profil Information
-'''%(R,W,G,) 
+''') 
 
 def cssMenuToolkit():
 	print '''
@@ -105,7 +95,7 @@ def cssMenuToolkit():
 	[4.] Auto  Brute  Force  Friends
 	[5.] Group  Comment  Auto  Spammer
 	[6.] Claim   Group    Administration
-'''%(R,W,G,)
+''')
 
 def cssMenuRecycle():
 	print '''
@@ -115,7 +105,7 @@ def cssMenuRecycle():
     [4] Delete All Album Photo
     [5] Delete All Photo In Album
     [6] Declane All Friends Request
-    '''%(R,R,R)
+    ''')
 
 def id():
 	print (cssLoginWarning);id = raw_input(UserValidation);pwd = getpass.getpass(UserValidati0n);API_SECRET = '62f8ce9f74b12f84c123cc23437a4a32';
