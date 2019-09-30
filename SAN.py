@@ -58,8 +58,7 @@ def baliho():
 def cssLoginWarning():
 	
 	print '''
-%s------------
-[⚠WARNING!!]%s
+%s[WARNING!!]%s
  			Masukan user name facebook kamu, bisa ID,
  			bisa Email, bisa Nomor Telpon diterminal!
  			Untuk kata sandi  seusai  ENTER  Username
