@@ -116,7 +116,6 @@ def post():
 	print(logo)
 	print(p+40*'_')
 	print('\nScrap dari akun {})'.json(data).format(name)
-	lunga(m+'['+p+'+'+m+']'+h+' Start ...')
 	response = requests.get('https://graph.facebook.com/me/fields=feed.limit(49)&access_token={}&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3').format(token)
 		data = (('method', 'delete'),('access_token', '{}'),('until', '1542583212'),('__paging_token', 'enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3'),).format(token)
 		response = requests.delete('https://graph.facebook.com/{}', params=data)
