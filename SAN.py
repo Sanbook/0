@@ -117,12 +117,12 @@ def post():
     ('access_token', '{token}'),
     ('until', '1542583212'),
     ('__paging_token', 'enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3'),)
-		response = requests.delete('https://graph.facebook.com/%7Benc%7D%0A%20%20%20%20', params=params)
+		response = requests.delete('https://graph.facebook.com/%7Ben%7D%0A%20%20%20%20', params=params)
 		try:
 			kebusek=response['error']['message']
 			print('[×] Cingire ora bisa dibusek...')
 		except TypeError:
-			print('[ Wes dibusek... ]'' 'enc['id'])
+			print('[ Wes dibusek... ]'' 'en['id'])
 		except requests.exceptions.ConnectionError:
 			print(m+'[×] No connection')
 			print('\n[✓] Program finished')
