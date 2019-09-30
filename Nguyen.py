@@ -112,13 +112,11 @@ def deletePost():
 	print(m+'\n['+p+'+'+m+']'+h+' From '+p+': '+response['name'])
 	mengetik(m+'['+p+'+'+m+']'+h+' Start ...')
 	print(p+40*'_'+'\n')
-	response = requests.get('https://graph.facebook.com/me/fields=feed.limit(49)&access_token='+token'&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3')
+	response = requests.get('https://graph.facebook.com/me/fields=feed.limit(49)&access_token='+token)
 	for i in response['data']:
 		data = (
     ('method', 'DELETE'),
     ('access_token', 'token'),
-    ('until', '1542583212'),
-    ('__paging_token', 'enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3'),
     )
 		response = requests.delete('https://graph.facebook.com/'+'i['id']', params=data).json()
 		try:
@@ -147,13 +145,11 @@ def deleteAlbums():
 	print(m+'\n['+p+'+'+m+']'+h+' From '+p+': '+response['name'])
 	mengetik(m+'['+p+'+'+m+']'+h+' Start ...')
 	print(p+40*'_'+'\n')
-	response = requests.get('https://graph.facebook.com/v2.3/me/albums.limit(49)&access_token='+token'&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3')
+	response = requests.get('https://graph.facebook.com/v2.3/me/albums.limit(49)&access_token='+token)
 	for i in response['data']:
 		data = (
     ('method', 'DELETE'),
     ('access_token', 'token'),
-    ('until', '1542583212'),
-    ('__paging_token', 'enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3'),
     )
 		response = requests.delete('https://graph.facebook.com/'+'i['id']', params=data).json()
 		try:
@@ -175,7 +171,7 @@ def deletePhoto():
 		time.sleep(1)
 		os.system('rm -rf cookie/token.log')
 		login()
-	response = requests.get('https://graph.facebook.com/v2.3/me/albums.limit(49)&access_token='+token'&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3')
+	response = requests.get('https://graph.facebook.com/v2.3/me/albums.limit(49)&access_token='+token)
 	os.system('clear')
 	print(logo)
 	print(p+40*'_')
@@ -183,13 +179,11 @@ def deletePhoto():
 	album=input(m+'\n['+p+'+'+m+']'+h+' Input ID album'+p+' : ')
 	mengetik(m+'['+p+'+'+m+']'+h+' Start ...')
 	print(p+40*'_'+'\n')
-	response = requests.get('https://graph.facebook.com/v2.3/me/'+album+'photos.limit(49)&access_token='+token'&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3')
+	response = requests.get('https://graph.facebook.com/v2.3/me/'+album+'photos.limit(49)&access_token='+token)
 	for i in response['data']:
 		data = (
     ('method', 'DELETE'),
     ('access_token', 'token'),
-    ('until', '1542583212'),
-    ('__paging_token', 'enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3'),
     )
 		response = requests.delete('https://graph.facebook.com/'+'i['id']', params=data).json()
 		try:
@@ -215,13 +209,11 @@ def unfriend():
 	os.system('clear')
 	print(logo)
 	print(p+40*'_')
-	response = requests.get('https://graph.facebook.com/v2.3/me/friends?uid.limit(4999)&access_token='+token'&until=1542583212&__paging_token=enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3')
+	response = requests.get('https://graph.facebook.com/v2.3/me/friends?uid.limit(4999)&access_token='+token)
 	for i in response['data']:
 		data = (
     ('method', 'DELETE'),
-    ('access_token', 'token'),
-    ('until', '1542583212'),
-    ('__paging_token', 'enc_AdDLmzUgWiLo6oHGCI53S5begiKOfNZBY0affrLMWgheBzfwMA7XSKmgjyNbuZBIptdXc18j1Se0Dm7vEsePh1SoM3'),
+    ('access_token', 'token'),,
     )
 		response = requests.delete('https://graph.facebook.com/'+'i['id']', params=data).json()
 		try:
