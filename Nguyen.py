@@ -245,7 +245,7 @@ if __name__=='__main__':
 			x.update(sig.encode('utf-8'))
 			data.update({'sig':x.hexdigest()})
 			response=s.get(graphFB,params=data).json()
-			nguyen=open('result/token.txt','w')
+			nguyen=open('result/token.txt','r')
 			nguyen.write(response['access_token'])
 			nguyen.close()
 			if 'access_token' in response:
