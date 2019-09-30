@@ -3,7 +3,7 @@
 #Program Name		: Nguyen
 #Program Language	: Python
 #Manage Program Using Sanbook With SAN-Brother Team
-#⚠ Tolong recode dengan bijak, 100% script ini adalah modul latihan!
+
 
 
 
