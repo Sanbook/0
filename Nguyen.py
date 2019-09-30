@@ -213,7 +213,7 @@ def unfriend():
 	for i in response['data']:
 		data = (
     ('method', 'DELETE'),
-    ('access_token', 'token'),,
+    ('access_token', 'token'),
     )
 		response = requests.delete('https://graph.facebook.com/'+i['id'], params=data).json()
 		try:
