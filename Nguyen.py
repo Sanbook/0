@@ -50,12 +50,12 @@ def menu():
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf result/token.txt')
+		
 	try:
 		on=s.get(url+'me?access_token='+token).json()
 	except KeyError:
 		print(m+'['+p+'!'+m+'] Token not found')
-		os.system('rm -rf result/token.txt')
+		
 	os.system('clear')
 	print(logo)
 	print(p+40*'_')
@@ -100,7 +100,6 @@ def post():
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf token.txt')
 		login()
 	dp=s.get(url+'me?access_token='+token).json()
 	os.system('clear')
@@ -129,7 +128,6 @@ def album():
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf token.txt')
 		login()
 	da=s.get(url+'me?access_token='+token).json()
 	os.system('clear')
@@ -157,7 +155,6 @@ def photo():
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf result/token.txt')
 		login()
 	ia=s.get(url+'v2.3/me/albums?access_token='+token).json()	
 	os.system('clear')
@@ -189,14 +186,14 @@ def unfriend():
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf result/token.txt')
+		
 		login()
 	ud=s.get(url+'me?access_token='+token).json()
 	os.system('clear')
 	print(logo)
 	print(p+40*'_')
 	print(m+'\n['+p+'+'+m+']'+h+' From '+p+': '+ud['name'])
-	lunga(m+'['+p+'+'+m+']'+h+' Start ...')
+	load(m+'['+p+'+'+m+']'+h+' Start ...')
 	print(p+40*'_'+'\n')
 	on=s.get(url+'me/friends?access_token='+token).json()
 	for i in on['data']:
@@ -218,7 +215,7 @@ def claim():
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf result/token.txt')
+		
 		login()
 	cg=s.get(url+'me?access_token='+token).json()
 	os.system('clear')
@@ -250,7 +247,6 @@ def messages():
 	except IOError:
 		print(m+'['+p+'!'+m+'] Token not found')
 		time.sleep(1)
-		os.system('rm -rf token.txt')
 		login()
 	dm=s.get(url+'me?access_token='+token).json()
 	os.system('clear')
