@@ -65,7 +65,7 @@ def menu():
 	os.system('clear')
 	print(logo)
 	print(p+40*'_')
-	print(m+'\n('+h+'✓'+m+')'+p+' Name '+h+ok['name'])
+	print(m+'\n('+h+'✓'+m+')'+p+' Name '+h+on['name'])
 	print(p+40*'_')
 	print(m+'\n('+h+'●'+m+') '+p+'01.'+k+' Delete post')
 	print(m+'('+h+'●'+m+') '+p+'02.'+k+' Delete albums')
