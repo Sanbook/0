@@ -38,16 +38,13 @@ def main():
   print(logo)
   print(csm)
   try:
-	cek = raw_input('Nguyen >> ')
-
+	cek = raw_input('MENU  ')
 	if cek.lower() == 'acces_token':
 		if len(jml) == 0:
 			getdata()
 		else:
 			print '[*] You have retrieved %s friends data'%(len(jml))
 			main()
-
-
 	elif cek.lower() == 'Login':
 		try:
 			open('cookie/token.log')
@@ -61,8 +58,6 @@ def main():
 		print '\n' + '[*] Generate Access token facebook [*]'.center(44) + '\n'
 		print '[Warn] please turn off your VPN before using this feature !!!'
 		login()
-
-
 	elif cek.lower() == "cat_token":
 		try:
 			o = open('cookie/token.log','r').read()
@@ -72,11 +67,9 @@ def main():
 			print '[!] failed to open cookie/token.log'
 			print "[!] type 'token' to generate access token"
 			main()
-
 	elif cek.lower() == 'delete_post':
 		print '\n'+'[*] Information Gathering [*]'.center(44) + '\n'
 		hapusStatus()
-
 	elif cek.lower() == 'clear':
 		if sys.platform == 'win32':
 			os.system('cls')
@@ -86,23 +79,16 @@ def main():
 			os.system('clear')
 			logo()
 			main()
-
-
-
-
 def get(data):
 	print '[*] Generate access token '
-
 	try:
 		os.mkdir('cookie')
 	except OSError:
 		pass
-
 	b = open('cookie/token.log','w')
 	try:
 		r = requests.get('https://api.facebook.com/restserver.php',params=data)
 		a = json.loads(r.text)
-
 		b.write(a['access_token'])
 		b.close()
 		print '[*] successfully generate access token'
