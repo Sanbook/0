@@ -143,9 +143,6 @@ def main():
 
 	if cek.lower() == 'token':
 			getdata()
-		else:
-			print ('[*] Wes aman pokokelah... ')
-			main()
 
 	elif cek.lower() == 'login':
 		try:
@@ -154,7 +151,7 @@ def main():
 			cek = raw_input('[?] Are you sure you want to continue [Y/N] ')
 			if cek.lower() != 'y':
 				print ('[*] Canceling ')
-				bot()
+				id()
 		except IOError:
 			pass
 
@@ -218,7 +215,165 @@ def main():
 ################################################################################
 #                          Get Data
 
+#MENDAPATKAN
+def ndelenggroup():
+	global token
+	print ('[!] Sedang CEK Acces Token...')
+	os.system('clear')
+	try:
+		token = open("cookie/token.log",'r').read()
+		print ('[*] Oke Acces Token masih bisa digunakan...')
+	except IOError:
+		print ('[!] failed load access token')
+		print ("[*] type 'token' to generate access token")
+		main()
+		r = requests.get('https://graph.facebook.com/me/groups?access_token='+token)
+		a = json.loads(r.text)
+		for i in a['data']:
+			print ('Nama Group :'+i['name'])
+			print ('ID   Group 			:'+i['id'])
+			print ('Jumlah Anggota 		:'+i['member_count'])
+			print ('Aktifitas Terakhir  :'+i['updated_time'])
+			return result['groups']['data']
 
+#DELETE
+def dPost():
+	global token, i
+	print ('[!] Sedang CEK Acces Token...')
+	os.system('clear')
+	try:
+		token = open("cookie/token.log",'r').read()
+		print ('[*] Oke Acces Token masih bisa digunakan...')
+	except IOError:
+		print ('[!] failed load access token')
+		print ("[*] type 'token' to generate access token")
+		main()
+	r = requests.get('https://graph.facebook.com/me?fields=feed&access_token='+token)
+	a = json.loads(r.text)
+	for i in a['data']:
+			kirimane = requests.post('https://graph.facebook.com/v3.0/'+i['id']+'?method=delete&access_token='+token)
+				try:
+					mbusek = kirimane ['error']['message']
+					print(+['message'])
+					print('[GAGAL]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+
+				except TypeError:
+					print('[SUKSES]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+
+def dPhoto():
+	global token, i
+	print ('[!] Sedang CEK Acces Token...')
+	os.system('clear')
+	try:
+		token = open("cookie/token.log",'r').read()
+		print ('[*] Oke Acces Token masih bisa digunakan...')
+	except IOError:
+		print ('[!] failed load access token')
+		print ("[*] type 'token' to generate access token")
+		main()
+	r = requests.get('https://graph.facebook.com/me?fields=photos&access_token='+token)
+	a = json.loads(r.text)
+	for i in a['data']:
+			kirimane = requests.post('https://graph.facebook.com/v3.0/'+i['id']+'?method=delete&access_token='+token)
+				try:
+					mbusek = kirimane ['error']['message']
+					print(+['message'])
+					print('[GAGAL]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+
+				except TypeError:
+					print('[SUKSES]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+				
+def dAlbum():
+	global token, i
+	print ('[!] Sedang CEK Acces Token...')
+	os.system('clear')
+	try:
+		token = open("cookie/token.log",'r').read()
+		print ('[*] Oke Acces Token masih bisa digunakan...')
+	except IOError:
+		print ('[!] failed load access token')
+		print ("[*] type 'token' to generate access token")
+		main()
+	r = requests.get('https://graph.facebook.com/me?fields=albums&access_token='+token)
+	a = json.loads(r.text)
+	for i in a['data']:
+			kirimane = requests.post('https://graph.facebook.com/v3.0/'+i['id']+'?method=delete&access_token='+token)
+				try:
+					mbusek = kirimane ['error']['message']
+					print(+['message'])
+					print('[GAGAL]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+
+				except TypeError:
+					print('[SUKSES]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+
+def dVideo():
+	global token, i
+	print ('[!] Sedang CEK Acces Token...')
+	os.system('clear')
+	try:
+		token = open("cookie/token.log",'r').read()
+		print ('[*] Oke Acces Token masih bisa digunakan...')
+	except IOError:
+		print ('[!] failed load access token')
+		print ("[*] type 'token' to generate access token")
+		main()
+	r = requests.get('https://graph.facebook.com/me?fields=videos&access_token='+token)
+	a = json.loads(r.text)
+	for i in a['data']:
+			kirimane = requests.post('https://graph.facebook.com/v3.0/'+i['id']+'?method=delete&access_token='+token)
+				try:
+					mbusek = kirimane ['error']['message']
+					print(+['message'])
+					print('[GAGAL]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+
+				except TypeError:
+					print('[SUKSES]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+
+def dAcara():
+	global token, i
+	print ('[!] Sedang CEK Acces Token...')
+	os.system('clear')
+	try:
+		token = open("cookie/token.log",'r').read()
+		print ('[*] Oke Acces Token masih bisa digunakan...')
+	except IOError:
+		print ('[!] failed load access token')
+		print ("[*] type 'token' to generate access token")
+		main()
+	r = requests.get('https://graph.facebook.com/me?fields=events&access_token='+token)
+	a = json.loads(r.text)
+	for i in a['data']:
+			kirimane = requests.post('https://graph.facebook.com/v3.0/'+i['id']+'?method=delete&access_token='+token)
+				try:
+					mbusek = kirimane ['error']['message']
+					print(+['message'])
+					print('[GAGAL]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+
+				except TypeError:
+					print('[SUKSES]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+
+def dPesan():
+	global token, i
+	print ('[!] Sedang CEK Acces Token...')
+	os.system('clear')
+	try:
+		token = open("cookie/token.log",'r').read()
+		print ('[*] Oke Acces Token masih bisa digunakan...')
+	except IOError:
+		print ('[!] failed load access token')
+		print ("[*] type 'token' to generate access token")
+		main()
+	r = requests.get('https://graph.facebook.com/me?fields=messages&access_token='+token)
+	a = json.loads(r.text)
+	for i in a['data']:
+			kirimane = requests.post('https://graph.facebook.com/v3.0/'+i['id']+'?method=delete&access_token='+token)
+				try:
+					mbusek = kirimane ['error']['message']
+					print(+['message'])
+					print('[GAGAL]' +i['id'] 'Dari' +i['name']),;sys.stdout.flush();time.sleep(0.1)
+
+				except TypeError:
+					print('[SUKSES]' +i['id'] 'Dari' +i['name']),;sys.stdout.flush();time.sleep(0.1)
 
 if __name__ == '__main__':
 
