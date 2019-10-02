@@ -225,7 +225,7 @@ def main():
 	main()
 	
 def group():
-	global, token
+	
 	os.system('clear')
 	print ('[!] Sedang CEK Acces Token...')
 	try:
