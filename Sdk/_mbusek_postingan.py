@@ -18,8 +18,6 @@ def cssmenu():
 
 def main():
 	print (cssmenu)
-
-  try:
 	cek = raw_input("MENU :")
 
 	if cek.lower() == 'LOGIN':
