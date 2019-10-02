@@ -20,9 +20,6 @@ def main():
 		unfriend()
 	elif i=='0' or i=='00':
 		os.sys.exit()
-	else:
-		print(m+'[!] Wrong input')
-		time.sleep(1)
 		main()
 
 def login():
@@ -94,5 +91,4 @@ def unfriend():
 
 
 if __name__ == '__main__':
-
 	main()
