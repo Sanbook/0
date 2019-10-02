@@ -6,9 +6,9 @@ reload (sys)
 sys . setdefaultencoding ( 'utf8' )
 
 def cssmenu():
-	print'LOGIN'
-	print'TOKEN'
-	print'UNFRIENDS'
+	print 'LOGIN'
+	print 'TOKEN'
+	print 'UNFRIENDS'
 def main():
 	print (cssmenu)
 	cek = raw_input("MENU :")
