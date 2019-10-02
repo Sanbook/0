@@ -341,12 +341,12 @@ def dVideo():
 	for i in a['data']:
 		videone = requests.post('https://graph.facebook.com/v3.0/'+i['id']+'?method=delete&access_token='+token)
 		try:
-		mbusek = videone ['error']['message']
-		print(+['message'])
-		print('[GAGAL]' +i['created_time']  +i['id']),;sys.stdout.flush();time.sleep(0.1)
+			mbusek = videone ['error']['message']
+			print(+['message'])
+			print('[GAGAL]' +i['created_time']  +i['id']),;sys.stdout.flush();time.sleep(0.1)
 
-		except TypeError:
-		print('[SUKSES]' +i['created_time']  +i['id']),;sys.stdout.flush();time.sleep(0.1)
+			except TypeError:
+			print('[SUKSES]' +i['created_time']  +i['id']),;sys.stdout.flush();time.sleep(0.1)
 
 def dAcara():
 	global token, i
