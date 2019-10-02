@@ -5,12 +5,8 @@ jml = []
 reload (sys)
 sys . setdefaultencoding ( 'utf8' )
 
-def cssmenu():
-	print 'LOGIN'
-	print 'TOKEN'
-	print 'UNFRIENDS'
+
 def main():
-	print (cssmenu)
 	cek = raw_input("MENU :")
 
 	if cek.lower() == 'LOGIN':
@@ -82,7 +78,7 @@ def unfriend():
 
 		try:
 			jok = jo['error']['message']
-			print('[×] Failed')
+			print '[×] Failed'
 		except KeyError:
 			pass
 		try:
