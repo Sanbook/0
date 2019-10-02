@@ -238,13 +238,12 @@ def group():
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
 		os.system('clear')
-		name = r['name']
-		n.append(r['name'])
-		print('Mencoba mengambil nomor refrensi group dari' +r[name])
+		n.append(a['name'])
+		print('Mencoba mengambil nomor refrensi group dari' +a[name])
 		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
 		r = requests.post('https://graph.facebook.com/me/groups?access_token='+token)
 		a = json.loads(r.text)
-		for i in r['data']:
+		for i in a['data']:
 			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
 			print ('Nama Group :'+i['name'])
 			print ('ID   Group 			:'+i['id'])
@@ -253,227 +252,12 @@ def group():
 	except KeyError:
 		print ('[!] Your access token is expired')
 		print ("[!] type 'token' to generate access token")
-		main()
+		id()
 
 	except requests.exceptions.ConnectionError:
 		print ('[!] Connection Error')
 		print ('[!] Stopped')
 		main()
-
-
-def groupVA():
-	os.system('clear')
-	print ('[!] Sedang CEK Acces Token...')
-	try:
-		token = open("cookie/token.log",'r').read()
-		print ('[*] Oke Acces Token masih bisa digunakan...')
-	except IOError:
-		print ('[!] failed load access token')
-		print ("[*] type 'token' to generate access token")
-		id()
-		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
-		a = json.loads(r.text)
-		os.system('clear')
-		name = r['name']
-		n.append(r['name'])
-		print('Mencoba mengambil nomor refrensi group dari' +r[name])
-		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.post('https://graph.facebook.com/v2.10/me/groups?access_token='+token)
-		a = json.loads(r.text)
-		for i in r['data']:
-			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
-			print ('Nama Group :'+i['name'])
-			print ('ID   Group 			:'+i['id'])
-			print ('Jumlah Anggota 		:'+i['member_count'])
-			print ('Aktifitas Terakhir  :'+i['updated_time'])
-
-def groupVB():
-	os.system('clear')
-	print ('[!] Sedang CEK Acces Token...')
-	try:
-		token = open("cookie/token.log",'r').read()
-		print ('[*] Oke Acces Token masih bisa digunakan...')
-	except IOError:
-		print ('[!] failed load access token')
-		print ("[*] type 'token' to generate access token")
-		id()
-		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
-		a = json.loads(r.text)
-		os.system('clear')
-		name = r['name']
-		n.append(r['name'])
-		print('Mencoba mengambil nomor refrensi group dari' +r[name])
-		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.post('https://graph.facebook.com/v2.11/me/groups?access_token='+token)
-		a = json.loads(r.text)
-		for i in r['data']:
-			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
-			print ('Nama Group :'+i['name'])
-			print ('ID   Group 			:'+i['id'])
-			print ('Jumlah Anggota 		:'+i['member_count'])
-			print ('Aktifitas Terakhir  :'+i['updated_time'])
-
-			
-
-def groupVC():
-	os.system('clear')
-	print ('[!] Sedang CEK Acces Token...')
-	try:
-		token = open("cookie/token.log",'r').read()
-		print ('[*] Oke Acces Token masih bisa digunakan...')
-	except IOError:
-		print ('[!] failed load access token')
-		print ("[*] type 'token' to generate access token")
-		id()
-		r = requests.get('https://graph.facebook.com/v2.12/me?access_token=' + token)
-		a = json.loads(r.text)
-		os.system('clear')
-		name = r['name']
-		n.append(r['name'])
-		print('Mencoba mengambil nomor refrensi group dari' +r[name])
-		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.post('https://graph.facebook.com/v2.12/me/groups?access_token='+token)
-		a = json.loads(r.text)
-		for i in r['data']:
-			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
-			print ('Nama Group :'+i['name'])
-			print ('ID   Group 			:'+i['id'])
-			print ('Jumlah Anggota 		:'+i['member_count'])
-			print ('Aktifitas Terakhir  :'+i['updated_time'])
-	
-		
-			
-def groupVD():
-	os.system('clear')
-	print ('[!] Sedang CEK Acces Token...')
-	try:
-		token = open("cookie/token.log",'r').read()
-		print ('[*] Oke Acces Token masih bisa digunakan...')
-	except IOError:
-		print ('[!] failed load access token')
-		print ("[*] type 'token' to generate access token")
-		id()
-		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
-		a = json.loads(r.text)
-		os.system('clear')
-		name = r['name']
-		n.append(r['name'])
-		print('Mencoba mengambil nomor refrensi group dari' +r[name])
-		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.post('https://graph.facebook.com/v3.0/me/groups?access_token='+token)
-		a = json.loads(r.text)
-		for i in r['data']:
-			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
-			print ('Nama Group :'+i['name'])
-			print ('ID   Group 			:'+i['id'])
-			print ('Jumlah Anggota 		:'+i['member_count'])
-			print ('Aktifitas Terakhir  :'+i['updated_time'])
-
-def groupVE():
-	os.system('clear')
-	print ('[!] Sedang CEK Acces Token...')
-	try:
-		token = open("cookie/token.log",'r').read()
-		print ('[*] Oke Acces Token masih bisa digunakan...')
-	except IOError:
-		print ('[!] failed load access token')
-		print ("[*] type 'token' to generate access token")
-		id()
-		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
-		a = json.loads(r.text)
-		os.system('clear')
-		name = r['name']
-		n.append(r['name'])
-		print('Mencoba mengambil nomor refrensi group dari' +r[name])
-		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.post('https://graph.facebook.com/v3.1/me/groups?access_token='+token)
-		a = json.loads(r.text)
-		for i in r['data']:
-			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
-			print ('Nama Group :'+i['name'])
-			print ('ID   Group 			:'+i['id'])
-			print ('Jumlah Anggota 		:'+i['member_count'])
-			print ('Aktifitas Terakhir  :'+i['updated_time'])
-
-def groupVF():
-	os.system('clear')
-	print ('[!] Sedang CEK Acces Token...')
-	try:
-		token = open("cookie/token.log",'r').read()
-		print ('[*] Oke Acces Token masih bisa digunakan...')
-	except IOError:
-		print ('[!] failed load access token')
-		print ("[*] type 'token' to generate access token")
-		id()
-		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
-		a = json.loads(r.text)
-		os.system('clear')
-		name = r['name']
-		n.append(r['name'])
-		print('Mencoba mengambil nomor refrensi group dari' +r[name])
-		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.post('https://graph.facebook.com/v3.2/me/groups?access_token='+token)
-		a = json.loads(r.text)
-		for i in r['data']:
-			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
-			print ('Nama Group :'+i['name'])
-			print ('ID   Group 			:'+i['id'])
-			print ('Jumlah Anggota 		:'+i['member_count'])
-			print ('Aktifitas Terakhir  :'+i['updated_time'])
-
-def groupVG():
-	os.system('clear')
-	print ('[!] Sedang CEK Acces Token...')
-	try:
-		token = open("cookie/token.log",'r').read()
-		print ('[*] Oke Acces Token masih bisa digunakan...')
-	except IOError:
-		print ('[!] failed load access token')
-		print ("[*] type 'token' to generate access token")
-		id()
-		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
-		a = json.loads(r.text)
-		os.system('clear')
-		name = r['name']
-		n.append(r['name'])
-		print('Mencoba mengambil nomor refrensi group dari' +r[name])
-		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.post('https://graph.facebook.com/v3.3/me/groups?access_token='+token)
-		a = json.loads(r.text)
-		for i in r['data']:
-			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
-			print ('Nama Group :'+i['name'])
-			print ('ID   Group 			:'+i['id'])
-			print ('Jumlah Anggota 		:'+i['member_count'])
-			print ('Aktifitas Terakhir  :'+i['updated_time'])
-
-def groupVH():
-	os.system('clear')
-	print ('[!] Sedang CEK Acces Token...')
-	try:
-		token = open("cookie/token.log",'r').read()
-		print ('[*] Oke Acces Token masih bisa digunakan...')
-	except IOError:
-		print ('[!] failed load access token')
-		print ("[*] type 'token' to generate access token")
-		id()
-		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
-		a = json.loads(r.text)
-		os.system('clear')
-		name = r['name']
-		n.append(r['name'])
-		print('Mencoba mengambil nomor refrensi group dari' +r[name])
-		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.post('https://graph.facebook.com/v4.0/me/groups?access_token='+token)
-		a = json.loads(r.text)
-		for i in r['data']:
-			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
-			print ('Nama Group :'+i['name'])
-			print ('ID   Group 			:'+i['id'])
-			print ('Jumlah Anggota 		:'+i['member_count'])
-			print ('Aktifitas Terakhir  :'+i['updated_time'])
-
-
 
 
 if __name__ == '__main__':
