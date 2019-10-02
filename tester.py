@@ -234,6 +234,7 @@ def group():
 		print ('[!] failed load access token')
 		print ("[*] type 'token' to generate access token")
 		id()
+	try:
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
 		os.system('clear')
@@ -249,6 +250,15 @@ def group():
 			print ('ID   Group 			:'+i['id'])
 			print ('Jumlah Anggota 		:'+i['member_count'])
 			print ('Aktifitas Terakhir  :'+i['updated_time'])
+	except KeyError:
+		print ('[!] Your access token is expired')
+		print ("[!] type 'token' to generate access token")
+		main()
+
+	except requests.exceptions.ConnectionError:
+		print ('[!] Connection Error')
+		print ('[!] Stopped')
+		main()
 
 
 def groupVA():
