@@ -7,17 +7,14 @@ sys . setdefaultencoding ( 'utf8' )
 
 
 def main():
-	cek = raw_input("MENU :")
+	main = input("Inputkan nilaimu: ")
 
-	if cek.lower() == 'LOGIN':
-		login()
-		
-	elif cek.lower() == 'TOKEN':
-		token()
-		
-	elif cek.lower() == 'UNFRIENDS':
-		unfriend()
-		main()
+if main >= LOGIN:
+	login()
+elif main >= TOKEN:
+	token()
+elif main >= UNFRIENDS:
+	unfriend()
 		
 
 def login():
