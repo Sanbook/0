@@ -238,23 +238,28 @@ def group():
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
 		for i in a['data']:
-		print ('Mencoba mengambil nomor refrensi group dari' +i['name'])
-		print ('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.post('https://graph.facebook.com/me/groups?access_token='+token)
-		a = json.loads(r.text)
-		for i in a['data']:
+			
+			print ('Mencoba mengambil nomor refrensi group dari' +i['name'])
+			print ('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
+			
+			r = requests.post('https://graph.facebook.com/me/groups?access_token='+token)
+			a = json.loads(r.text)
+			for i in a['data']:
+				
 		
-		print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
-		print ('Nama Group :'+i['name'])
-		print ('ID   Group 			:'+i['id'])
-		print ('Jumlah Anggota 		:'+i['member_count'])
-		print ('Aktifitas Terakhir  :'+i['updated_time'])
+				print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
+				print ('Nama Group :'+i['name'])
+				print ('ID   Group 			:'+i['id'])
+				print ('Jumlah Anggota 		:'+i['member_count'])
+				print ('Aktifitas Terakhir  :'+i['updated_time'])
 	except KeyError:
+		
 		print ('[!] Your access token is expired')
 		print ("[!] type 'token' to generate access token")
 		id()
 
 	except requests.exceptions.ConnectionError:
+		
 		print ('[!] Connection Error')
 		print ('[!] Stopped')
 		main()
