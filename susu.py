@@ -257,7 +257,7 @@ def group():
 		
 		print ('[!] Your access token is expired')
 		print ("[!] type 'token' to generate access token")
-		id()
+		group()
 
 	except requests.exceptions.ConnectionError:
 		
