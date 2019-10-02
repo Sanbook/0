@@ -76,7 +76,7 @@ def unfriend():
 
 		try:
 			jok = jo['error']['message']
-			print ("[×] Failed")
+			print ("Tidak bisa")
 		except KeyError:
 			pass
 		try:
