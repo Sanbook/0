@@ -2,9 +2,6 @@ import requests , json , sys , hashlib , os , time , getpass
 
 jml = []
 
-reload (sys)
-sys . setdefaultencoding ( 'utf8' )
-
 
 def main():
 	cek = raw_input("MENU :")
@@ -70,7 +67,6 @@ def unfriend():
 	ok = requests.get('https://graph.facebook.com/me/friends?access_token='+token)
 	oj = json.loads(r.text)
 	for o in ok['data']:
-
 		jo = requests.delete('https://graph.facebook.com/me/friends?uid='+o['id']+'&access_token='+token)
 		oj = json.loads(r.text)
 
@@ -84,9 +80,9 @@ def unfriend():
 			print ("\r[*] Menghapus %s dari daftar teman.%") (len(jml)),;sys.stdout.flush();time.sleep(0.0001)
 
 		except requests.exceptions.ConnectionError:
-		print ("[!] Connection Error")
-		print ("[!] Stopped")
-		main()
+			print ("[!] Connection Error")
+			print ("[!] Stopped")
+			main()
 
 
 if __name__ == '__main__':
