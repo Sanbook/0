@@ -240,7 +240,7 @@ def group():
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
 		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.get('https://graph.facebook.com/me/groups?access_token='+token)
+		r = requests.post('https://graph.facebook.com/me/groups?access_token='+token)
 		a = json.loads(r.text)
 		for i in r['data']:
 			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
@@ -266,7 +266,7 @@ def groupVA():
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
 		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.get('https://graph.facebook.com/v2.10/me/groups?access_token='+token)
+		r = requests.post('https://graph.facebook.com/v2.10/me/groups?access_token='+token)
 		a = json.loads(r.text)
 		for i in r['data']:
 			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
@@ -291,7 +291,7 @@ def groupVB():
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
 		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.get('https://graph.facebook.com/v2.11/me/groups?access_token='+token)
+		r = requests.post('https://graph.facebook.com/v2.11/me/groups?access_token='+token)
 		a = json.loads(r.text)
 		for i in r['data']:
 			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
@@ -318,7 +318,7 @@ def groupVC():
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
 		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.get('https://graph.facebook.com/v2.12/me/groups?access_token='+token)
+		r = requests.post('https://graph.facebook.com/v2.12/me/groups?access_token='+token)
 		a = json.loads(r.text)
 		for i in r['data']:
 			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
@@ -345,7 +345,7 @@ def groupVD():
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
 		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.get('https://graph.facebook.com/v3.0/me/groups?access_token='+token)
+		r = requests.post('https://graph.facebook.com/v3.0/me/groups?access_token='+token)
 		a = json.loads(r.text)
 		for i in r['data']:
 			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
@@ -370,7 +370,7 @@ def groupVE():
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
 		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.get('https://graph.facebook.com/v3.1/me/groups?access_token='+token)
+		r = requests.post('https://graph.facebook.com/v3.1/me/groups?access_token='+token)
 		a = json.loads(r.text)
 		for i in r['data']:
 			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
@@ -395,7 +395,7 @@ def groupVF():
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
 		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.get('https://graph.facebook.com/v3.2/me/groups?access_token='+token)
+		r = requests.post('https://graph.facebook.com/v3.2/me/groups?access_token='+token)
 		a = json.loads(r.text)
 		for i in r['data']:
 			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
@@ -420,7 +420,7 @@ def groupVG():
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
 		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.get('https://graph.facebook.com/v3.3/me/groups?access_token='+token)
+		r = requests.post('https://graph.facebook.com/v3.3/me/groups?access_token='+token)
 		a = json.loads(r.text)
 		for i in r['data']:
 			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
@@ -445,7 +445,7 @@ def groupVH():
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
 		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-		r = requests.get('https://graph.facebook.com/v4.0/me/groups?access_token='+token)
+		r = requests.post('https://graph.facebook.com/v4.0/me/groups?access_token='+token)
 		a = json.loads(r.text)
 		for i in r['data']:
 			print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
