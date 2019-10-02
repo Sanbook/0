@@ -233,7 +233,7 @@ def group():
 	except IOError:
 		print ('[!] failed load access token')
 		print ("[*] type 'token' to generate access token")
-		id()
+		
 	try:
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
