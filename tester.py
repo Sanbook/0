@@ -238,7 +238,6 @@ def group():
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
 		for i in a['data']:
-		os.system('clear')
 		print('Mencoba mengambil nomor refrensi group dari' +i[name])
 		print('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
 		r = requests.post('https://graph.facebook.com/me/groups?access_token='+token)
