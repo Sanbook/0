@@ -345,7 +345,7 @@ def dVideo():
 			print(+['message'])
 			print('[GAGAL]' +i['created_time']  +i['id']),;sys.stdout.flush();time.sleep(0.1)
 
-			except TypeError:
+		except TypeError:
 			print('[SUKSES]' +i['created_time']  +i['id']),;sys.stdout.flush();time.sleep(0.1)
 
 def dAcara():
