@@ -21,15 +21,15 @@ def main():
 	cek = raw_input("MENU :")
 
 	if cek.lower() == 'LOGIN':
-			login()
-		else:
-			print '[*] Mencoba login ke token'
-			token()
+		login()
+		
 	elif cek.lower() == 'TOKEN':
 		token()
+		
 	elif cek.lower() == 'UNFRIENDS':
 		unfriend()
 		main()
+		
   except KeyboardInterrupt:
 	main()
   except IndexError:
