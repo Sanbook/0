@@ -71,8 +71,6 @@ def unfriend():
 	ko = requests.get('https://graph.facebook.com/me?access_token='+token)
 	oj = json.loads(r.text)
 	os.system('clear')
-	print(logo)
-	print('Menggunakan akun'+ko['name'] 'untuk menghapus daftar  '+ko['id'])
 	print(80*'_'+'\n')
 
 	ok = requests.get('https://graph.facebook.com/me/friends?access_token='+token)
