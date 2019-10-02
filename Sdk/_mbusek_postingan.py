@@ -8,17 +8,16 @@ sys . setdefaultencoding ( 'utf8' )
 def cssmenu():
 
 	print '''
-     COMMAND                      DESCRIPTION
+  COMMAND	      DESCRIPTION
   -------------       -------------------------------------
 
-   LOGIN 			  Masuk facebook
-   TOKEN 			  Membuat Acces Token
-   UNFRIENDS 		  Menghapus Daftar Teman
+   LOGIN 		Masuk facebook
+   TOKEN 		Membuat Acces Token
+   UNFRIENDS 		Menghapus Daftar Teman
 '''
 
 def main():
 	print (cssmenu)
-  global target_login
 
   try:
 	cek = raw_input("MENU :")
