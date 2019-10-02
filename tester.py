@@ -225,7 +225,7 @@ def main():
 	main()
 	
 def group():
-	global token
+	os.system('clear')
 	print ('[!] Sedang CEK Acces Token...')
 	try:
 		token = open("cookie/token.log",'r').read()
@@ -236,6 +236,7 @@ def group():
 		id()
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
+		os.system('clear')
 		name = r['name']
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
@@ -251,7 +252,7 @@ def group():
 
 
 def groupVA():
-	global token
+	os.system('clear')
 	print ('[!] Sedang CEK Acces Token...')
 	try:
 		token = open("cookie/token.log",'r').read()
@@ -262,6 +263,7 @@ def groupVA():
 		id()
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
+		os.system('clear')
 		name = r['name']
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
@@ -276,7 +278,7 @@ def groupVA():
 			print ('Aktifitas Terakhir  :'+i['updated_time'])
 
 def groupVB():
-	global token
+	os.system('clear')
 	print ('[!] Sedang CEK Acces Token...')
 	try:
 		token = open("cookie/token.log",'r').read()
@@ -287,6 +289,7 @@ def groupVB():
 		id()
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
+		os.system('clear')
 		name = r['name']
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
@@ -303,7 +306,7 @@ def groupVB():
 			
 
 def groupVC():
-	global token
+	os.system('clear')
 	print ('[!] Sedang CEK Acces Token...')
 	try:
 		token = open("cookie/token.log",'r').read()
@@ -314,6 +317,7 @@ def groupVC():
 		id()
 		r = requests.get('https://graph.facebook.com/v2.12/me?access_token=' + token)
 		a = json.loads(r.text)
+		os.system('clear')
 		name = r['name']
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
@@ -330,7 +334,7 @@ def groupVC():
 		
 			
 def groupVD():
-	global token
+	os.system('clear')
 	print ('[!] Sedang CEK Acces Token...')
 	try:
 		token = open("cookie/token.log",'r').read()
@@ -341,6 +345,7 @@ def groupVD():
 		id()
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
+		os.system('clear')
 		name = r['name']
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
@@ -355,7 +360,7 @@ def groupVD():
 			print ('Aktifitas Terakhir  :'+i['updated_time'])
 
 def groupVE():
-	global token
+	os.system('clear')
 	print ('[!] Sedang CEK Acces Token...')
 	try:
 		token = open("cookie/token.log",'r').read()
@@ -366,6 +371,7 @@ def groupVE():
 		id()
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
+		os.system('clear')
 		name = r['name']
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
@@ -380,7 +386,7 @@ def groupVE():
 			print ('Aktifitas Terakhir  :'+i['updated_time'])
 
 def groupVF():
-	global token
+	os.system('clear')
 	print ('[!] Sedang CEK Acces Token...')
 	try:
 		token = open("cookie/token.log",'r').read()
@@ -391,6 +397,7 @@ def groupVF():
 		id()
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
+		os.system('clear')
 		name = r['name']
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
@@ -405,7 +412,7 @@ def groupVF():
 			print ('Aktifitas Terakhir  :'+i['updated_time'])
 
 def groupVG():
-	global token
+	os.system('clear')
 	print ('[!] Sedang CEK Acces Token...')
 	try:
 		token = open("cookie/token.log",'r').read()
@@ -416,6 +423,7 @@ def groupVG():
 		id()
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
+		os.system('clear')
 		name = r['name']
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
@@ -430,7 +438,7 @@ def groupVG():
 			print ('Aktifitas Terakhir  :'+i['updated_time'])
 
 def groupVH():
-	global token
+	os.system('clear')
 	print ('[!] Sedang CEK Acces Token...')
 	try:
 		token = open("cookie/token.log",'r').read()
@@ -441,6 +449,7 @@ def groupVH():
 		id()
 		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
 		a = json.loads(r.text)
+		os.system('clear')
 		name = r['name']
 		n.append(r['name'])
 		print('Mencoba mengambil nomor refrensi group dari' +r[name])
