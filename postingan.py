@@ -9,11 +9,11 @@ sys . setdefaultencoding ( 'utf8' )
 def main():
 	main = input("Inputkan nilaimu: ")
 
-if main >= LOGIN:
+if main >= 'LOGIN':
 	login()
-elif main >= TOKEN:
+elif main >= 'TOKEN':
 	token()
-elif main >= UNFRIENDS:
+elif main >= 'UNFRIENDS':
 	unfriend()
 		
 
