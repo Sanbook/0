@@ -4,8 +4,8 @@ import json , sys , hashlib , os , time , getpass
 
 if sys.platform in ["linux","linux2"]:
 	W = "\033[0m"
-    G = '\033[32;1m'
-    R = '\033[31;1m'
+    	G = "\033[32;1m"
+    	R = "\033[31;1m"
 else:
 	W = ''
 	G = ''
@@ -16,8 +16,7 @@ try:
 	import requests
 except ImportError:
 	print ('SANBOOK').center(44)
-	print ' '
-	print "[!] Can't import module 'requests'\n"
+	print ("[!] Can't import module 'requests'\n")
 	sys.exit()
 ####################################################################
 #                    Set Default encoding
@@ -45,7 +44,7 @@ def baliho():
 
 #                     GENERATE ACCESS TOKEN
 def get(data):
-	print '[*] Generate access token '
+	print ('[*] Generate access token ')
 
 	try:
 		os.mkdir('cookie')
@@ -59,17 +58,17 @@ def get(data):
 
 		b.write(a['access_token'])
 		b.close()
-		print '[*] successfully generate access token'
-		print '[*] Your access token is stored in cookie/token.log'
+		print ('[*] successfully generate access token')
+		print ('[*] Your access token is stored in cookie/token.log')
 		exit()
 	except KeyError:
-		print '[!] Failed to generate access token'
-		print '[!] Check your connection / email or password'
+		print ('[!] Failed to generate access token')
+		print ('[!] Check your connection / email or password')
 		os.remove('cookie/token.log')
 		main()
 	except requests.exceptions.ConnectionError:
-		print '[!] Failed to generate access token'
-		print '[!] Connection error !!!'
+		print ('[!] Failed to generate access token')
+		print ('[!] Connection error !!!')
 		os.remove('cookie/token.log')
 		main()
 def id():
