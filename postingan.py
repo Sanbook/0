@@ -2,6 +2,9 @@ import requests , json , sys , hashlib , os , time , getpass
 
 jml = []
 
+reload (sys)
+sys . setdefaultencoding ( 'utf8' )
+
 
 def main():
 	cek = raw_input("MENU :")
