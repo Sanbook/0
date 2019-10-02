@@ -226,7 +226,7 @@ def main():
 	
 def group():
 	
-	os.system('clear')
+	global token
 	print ('[!] Sedang CEK Acces Token...')
 	try:
 		token = open("cookie/token.log",'r').read()
@@ -243,7 +243,7 @@ def group():
 			print ('Mencoba mengambil nomor refrensi group dari' +i['name'])
 			print ('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
 			
-			x = requests.post('https://graph.facebook.com/me/groups?access_token='+token)
+			x = requests.get('https://graph.facebook.com/me/groups?access_token='+token)
 			y = json.loads(r.text)
 			for i in y['data']:
 				
