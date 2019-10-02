@@ -269,10 +269,10 @@ def dPost():
 		try:
 			mbusek = kirimane ['error']['message']
 			print(+['message'])
-			print('[GAGAL]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+			print('[GAGAL]' +i['created_time'] 'saking' +i['id']),;sys.stdout.flush();time.sleep(0.1)
 
 		except TypeError:
-			print('[SUKSES]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+			print('[SUKSES]' +i['created_time'] 'saking' +i['id']),;sys.stdout.flush();time.sleep(0.1)
 
 def dPhoto():
 	
@@ -297,10 +297,10 @@ def dPhoto():
 		try:
 			mbusek = photone ['error']['message']
 			print(+['message'])
-			print('[GAGAL]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+			print('[GAGAL]' +i['created_time'] 'nomore' +i['id']),;sys.stdout.flush();time.sleep(0.1)
 			
 		except TypeError:
-			print('[SUKSES]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+			print('[SUKSES]' +i['created_time'] 'nomore' +i['id']),;sys.stdout.flush();time.sleep(0.1)
 				
 def dAlbum():
 	global token, i
@@ -320,10 +320,10 @@ def dAlbum():
 		try:
 			mbusek = albume ['error']['message']
 			print(+['message'])
-			print('[GAGAL]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+			print('[GAGAL]' +i['created_time'] 'angkane' +i['id']),;sys.stdout.flush();time.sleep(0.1)
 
 		except TypeError:
-			print('[SUKSES]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+			print('[SUKSES]' +i['created_time'] 'angkane' +i['id']),;sys.stdout.flush();time.sleep(0.1)
 
 def dVideo():
 	global token, i
@@ -343,10 +343,10 @@ def dVideo():
 		try:
 		mbusek = videone ['error']['message']
 		print(+['message'])
-		print('[GAGAL]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+		print('[GAGAL]' +i['created_time'] 'bentukane' +i['id']),;sys.stdout.flush();time.sleep(0.1)
 
 		except TypeError:
-		print('[SUKSES]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+		print('[SUKSES]' +i['created_time'] 'bentukane' +i['id']),;sys.stdout.flush();time.sleep(0.1)
 
 def dAcara():
 	global token, i
@@ -368,10 +368,10 @@ def dAcara():
 			
 			mbusek = acarane ['error']['message']
 			print(+['message'])
-			print('[GAGAL]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+			print('[GAGAL]' +i['created_time'] 'kodene' +i['id']),;sys.stdout.flush();time.sleep(0.1)
 
 		except TypeError:
-			print('[SUKSES]' +i['created_time'] 'ID' +i['id']),;sys.stdout.flush();time.sleep(0.1)
+			print('[SUKSES]' +i['created_time'] 'kodene' +i['id']),;sys.stdout.flush();time.sleep(0.1)
 
 def dPesan():
 	global token, i
