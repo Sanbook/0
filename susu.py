@@ -205,21 +205,11 @@ def main():
 		elif cek.lower() == '40':
 			groupVH()
 			
-
-			else:
-				
-				if cek == '':
-				main()
-			else:
-				print ("[!] command '"+cek+"' not found")
-				print ('[!] type "help" to show command')
-				main()
-			
   	except KeyboardInterrupt:
 		
 		main()
 	
- 	 except IndexError:
+ 	except IndexError:
 		print ('[!] invalid parameter on command : ') + cek
 		main()
  if __name__ == "__main__":
