@@ -245,16 +245,21 @@ def group():
 				print ('Jumlah Anggota 		:'+i['member_count'])
 				print ('Aktifitas Terakhir  :'+i['updated_time'])
 			except KeyError:
-			pass
+				pass
+			
 	except KeyboardInterrupt:
-		print '\r[!] Stopped'
+		
+		print ('\r[!] Stopped')
 		main()
+		
 	except KeyError:
-		print "[!] failed to fetch all emails"
+		
+		print ("[!] failed to fetch all emails")
 		main()
 	except (requests.exceptions.ConnectionError , requests.exceptions.ChunkedEncodingError):
-		print '[!] Connection Error'
-		print '[!] Stopped'
+		
+		print ('[!] Connection Error')
+		print ('[!] Stopped')
 		main()
 
 
