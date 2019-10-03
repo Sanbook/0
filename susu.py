@@ -240,14 +240,12 @@ def group():
 		a = json.loads(r.text)
 		for i in a['data']:
 			try:
-
-			
 				print ('Nama Group :'+i['name'])
 				print ('ID   Group 			:'+i['id'])
 				print ('Jumlah Anggota 		:'+i['member_count'])
 				print ('Aktifitas Terakhir  :'+i['updated_time'])
-				except KeyError:
-				pass
+			except KeyError:
+			pass
 	except KeyboardInterrupt:
 		print '\r[!] Stopped'
 		main()
