@@ -256,3 +256,5 @@ def group():
 				print ('[!] Connection Error')
 				print ('[!] Stopped')
 				main()
+if __name__ == "__main__":
+	id()
