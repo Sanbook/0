@@ -148,25 +148,22 @@ def group():
 		print ("[*] type 'token' to generate access token")
 		main()
 	try:
-		r = requests.get('https://graph.facebook.com/me/groups?access_token='+token)
-		a = json.loads(r.text)
+		r = requests.get('https://graph.facebook.com/v3.0/me?fields=groups&access_token='+token)
+		result = json.loads(r.text)
 		os.system('clear')
-		for i in r['data']:
-			try:
-				print ('Nama Group :'+i['name'])
-				print ('ID   Group 			:'+i['id'])
-				print ('Jumlah Anggota 		:'+i['member_count'])
-				print ('Aktifitas Terakhir  :'+i['updated_time'])
-				groups.append(r['groups'])
-			except KeyError:
-		
-				print ("[!] failed to fetch all emails")
-				main()
-			except (requests.exceptions.ConnectionError , requests.exceptions.ChunkedEncodingError):
-		
-				print ('[!] Connection Error')
-				print ('[!] Stopped')
-				main()
+		for i in result['data']:
+			print ('Nama Group :'+i['name'])
+			print ('ID   Group 			:'+i['id'])
+			print ('Jumlah Anggota 		:'+i['member_count'])
+			print ('Aktifitas Terakhir  :'+i['updated_time'])
+			return result['groups']['data']
+	except KeyError:
+		print ("[!] failed to fetch all emails")
+		main()
+	except (requests.exceptions.ConnectionError , requests.exceptions.ChunkedEncodingError):
+		print ('[!] Connection Error')
+		print ('[!] Stopped')
+		main()
 
 def main():
 	
