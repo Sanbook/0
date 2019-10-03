@@ -173,25 +173,10 @@ def main():
 		cek = raw_input(R + 'Sanbook' + W +' >> ')
 
 		if cek.lower() == 'token':
-			
 			getdata()
 
 		elif cek.lower() == 'login':
-			
-			try:
-			open('cookie/token.log')
-			print ('[!] an access token already exists')
-			cek = raw_input('[?] Are you sure you want to continue [Y/N] ')
-			if cek.lower() != 'y':
-				
-				print ('[*] Canceling ')
-				id()
-				except IOError:
-				pass
-
-				print ('\n' + '[*] Generate Access token facebook [*]'.center(44) + '\n')
-				print ('[Warn] please turn off your VPN before using this feature !!!')
-				id()
+			id()
 		
 		elif cek.lower() == 'logout':
 			
@@ -217,7 +202,6 @@ def main():
 				print ('[*] failed to delete cookie/token.log')
 				main()
 		elif cek.lower() == 'standard':
-			
 			group()
 			
 		elif cek.lower() == '210':
