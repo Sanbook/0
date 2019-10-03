@@ -135,95 +135,6 @@ def menu():
    exit             Exit the program
 '''%(G,W))
 
-def main():
-  global target_id
-  print (menu)
-
-  try:
-	cek = raw_input(R + 'Sanbook' + W +' >> ')
-
-	if cek.lower() == 'token':
-			getdata()
-
-	elif cek.lower() == 'login':
-		try:
-			open('cookie/token.log')
-			print ('[!] an access token already exists')
-			cek = raw_input('[?] Are you sure you want to continue [Y/N] ')
-			if cek.lower() != 'y':
-				
-				print ('[*] Canceling ')
-				id()
-				
-		except IOError:
-			pass
-
-		print ('\n' + '[*] Generate Access token facebook [*]'.center(44) + '\n')
-		print ('[Warn] please turn off your VPN before using this feature !!!')
-		id()
-		
-	elif cek.lower() == 'logout':
-		
-		print ('''
-[Warn] you must create access token again if 
-       your access token is deleted
-''')
-		
-		a = raw_input("[!] type 'delete' to continue : ")
-		if a.lower() == 'delete':
-			try:
-				os.system('rm -rf cookie/token.log')
-				print ('[*] Success delete cookie/token.log')
-				main()
-			except OSError:
-				print ('[*] failed to delete cookie/token.log')
-				main()
-		else:
-			print ('[*] failed to delete cookie/token.log')
-			main()
-	elif cek.lower() == 'standard':
-		group()
-			
-	elif cek.lower() == '210':
-		groupVA()
-
-	elif cek.lower() == '211':
-		groupVB()
-
-
-	elif cek.lower() == '212':
-		groupVC()
-
-	elif cek.lower() == '30':
-		groupVD()
-
-	elif cek.lower() == '31':
-		groupVE()
-
-	elif cek.lower() == '32':
-		groupVF()
-
-	elif cek.lower() == '33':
-		groupVG()
-
-	elif cek.lower() == '40':
-		groupVH()
-
-	else:
-		if cek == '':
-			main()
-		else:
-			print ("[!] command '"+cek+"' not found")
-			print ('[!] type "help" to show command')
-			main()
-			
-  except KeyboardInterrupt:
-	main()
-	
-  except IndexError:
-	print ('[!] invalid parameter on command : ') + cek
-	main()
-	
 	
 def group():
 	
@@ -256,5 +167,104 @@ def group():
 				print ('[!] Connection Error')
 				print ('[!] Stopped')
 				main()
-if __name__ == "__main__":
-	id()
+
+def main():
+	
+ 	print (menu)
+	try:
+		
+		cek = raw_input(R + 'Sanbook' + W +' >> ')
+
+		if cek.lower() == 'token':
+			
+			getdata()
+
+		elif cek.lower() == 'login':
+			
+			try:
+			open('cookie/token.log')
+			print ('[!] an access token already exists')
+			cek = raw_input('[?] Are you sure you want to continue [Y/N] ')
+			if cek.lower() != 'y':
+				
+				print ('[*] Canceling ')
+				id()
+				except IOError:
+				pass
+
+				print ('\n' + '[*] Generate Access token facebook [*]'.center(44) + '\n')
+				print ('[Warn] please turn off your VPN before using this feature !!!')
+				id()
+		
+		elif cek.lower() == 'logout':
+			
+		
+			print ('''
+[Warn] you must create access token again if 
+       your access token is deleted
+''')
+			
+		
+			a = raw_input("[!] type 'delete' to continue : ")
+			if a.lower() == 'delete':
+			try:
+				
+				os.system('rm -rf cookie/token.log')
+				print ('[*] Success delete cookie/token.log')
+				main()
+			except OSError:
+				print ('[*] failed to delete cookie/token.log')
+				main()
+			else:
+				
+				print ('[*] failed to delete cookie/token.log')
+				main()
+		elif cek.lower() == 'standard':
+			
+			group()
+			
+		elif cek.lower() == '210':
+			groupVA()
+
+		elif cek.lower() == '211':
+			groupVB()
+
+
+		elif cek.lower() == '212':
+			groupVC()
+
+		elif cek.lower() == '30':
+			groupVD()
+
+		elif cek.lower() == '31':
+			groupVE()
+
+		elif cek.lower() == '32':
+			groupVF()
+
+		elif cek.lower() == '33':
+			groupVG()
+
+		elif cek.lower() == '40':
+			groupVH()
+			
+
+			else:
+				
+				if cek == '':
+				main()
+			else:
+				print ("[!] command '"+cek+"' not found")
+				print ('[!] type "help" to show command')
+				main()
+			
+  	except KeyboardInterrupt:
+		
+		main()
+	
+ 	 except IndexError:
+		print ('[!] invalid parameter on command : ') + cek
+		main()
+ if __name__ == "__main__":
+	
+	main()
