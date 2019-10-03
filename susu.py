@@ -234,35 +234,29 @@ def group():
 	except IOError:
 		print ('[!] failed load access token')
 		print ("[*] type 'token' to generate access token")
-		
+		main()
 	try:
-		r = requests.get('https://graph.facebook.com/me?access_token=' + token)
+		r = requests.get('https://graph.facebook.com/me/groups?access_token='+token)
 		a = json.loads(r.text)
 		for i in a['data']:
+			try:
+
 			
-			print ('Mencoba mengambil nomor refrensi group dari' +i['name'])
-			print ('mohon tunggu sebentar, program masih mengumpulkan refrensi group.')
-			
-			x = requests.get('https://graph.facebook.com/me/groups?access_token='+token)
-			y = json.loads(r.text)
-			for i in y['data']:
-				
-		
-				print('GROUP TEMPAT KAMU BERGABUNG ADALAH')
 				print ('Nama Group :'+i['name'])
 				print ('ID   Group 			:'+i['id'])
 				print ('Jumlah Anggota 		:'+i['member_count'])
 				print ('Aktifitas Terakhir  :'+i['updated_time'])
+				except KeyError:
+				pass
+	except KeyboardInterrupt:
+		print '\r[!] Stopped'
+		main()
 	except KeyError:
-		
-		print ('[!] Your access token is expired')
-		print ("[!] type 'token' to generate access token")
-		group()
-
-	except requests.exceptions.ConnectionError:
-		
-		print ('[!] Connection Error')
-		print ('[!] Stopped')
+		print "[!] failed to fetch all emails"
+		main()
+	except (requests.exceptions.ConnectionError , requests.exceptions.ChunkedEncodingError):
+		print '[!] Connection Error'
+		print '[!] Stopped'
 		main()
 
 
