@@ -212,6 +212,6 @@ def main():
  	except IndexError:
 		print ('[!] invalid parameter on command : ') + cek
 		main()
- if __name__ == "__main__":
+ if __name__ == "__main__"=
 	
 	main()
