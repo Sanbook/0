@@ -177,30 +177,6 @@ def main():
 
 		elif cek.lower() == 'login':
 			id()
-		
-		elif cek.lower() == 'logout':
-			
-		
-			print ('''
-[Warn] you must create access token again if 
-       your access token is deleted
-''')
-			
-		
-			a = raw_input("[!] type 'delete' to continue : ")
-			if a.lower() == 'delete':
-			try:
-				
-				os.system('rm -rf cookie/token.log')
-				print ('[*] Success delete cookie/token.log')
-				main()
-			except OSError:
-				print ('[*] failed to delete cookie/token.log')
-				main()
-			else:
-				
-				print ('[*] failed to delete cookie/token.log')
-				main()
 		elif cek.lower() == 'standard':
 			group()
 			
