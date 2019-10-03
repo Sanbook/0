@@ -109,7 +109,7 @@ def getdata():
 		print ('[!] Stopped')
 		main()
 
-	for i in a['data']:
+	for i in r['data']:
 		jml.append(i['id'])
 		print ('\r[*] fetching %s data from friends')%(len(jml)),;sys.stdout.flush();time.sleep(0.0001)
 
@@ -224,6 +224,7 @@ def main():
 	print ('[!] invalid parameter on command : ') + cek
 	main()
 	
+	
 def group():
 	
 	global token
@@ -238,29 +239,26 @@ def group():
 	try:
 		r = requests.get('https://graph.facebook.com/me/groups?access_token='+token)
 		a = json.loads(r.text)
-		for i in a['data']:
+		os.system('clear')
+		for i in r['data']:
 			try:
 				print ('Nama Group :'+i['name'])
 				print ('ID   Group 			:'+i['id'])
 				print ('Jumlah Anggota 		:'+i['member_count'])
 				print ('Aktifitas Terakhir  :'+i['updated_time'])
+				groups.append(r['groups'])
 			except KeyError:
-				pass
-			
-	except KeyboardInterrupt:
 		
-		print ('\r[!] Stopped')
-		main()
+				print ("[!] failed to fetch all emails")
+				main()
+			except (requests.exceptions.ConnectionError , requests.exceptions.ChunkedEncodingError):
 		
-	except KeyError:
-		
-		print ("[!] failed to fetch all emails")
-		main()
-	except (requests.exceptions.ConnectionError , requests.exceptions.ChunkedEncodingError):
-		
-		print ('[!] Connection Error')
-		print ('[!] Stopped')
-		main()
+				print ('[!] Connection Error')
+				print ('[!] Stopped')
+				main()
+	
+	
+
 
 
 if __name__ == '__main__':
