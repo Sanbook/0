@@ -257,11 +257,8 @@ def group():
 				print ('[!] Stopped')
 				main()
 	
-	
+if __name__ == "__main__":
 
-
-
-if __name__ == '__main__':
-
+    while(True):
 	baliho()
 	main()
