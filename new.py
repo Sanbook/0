@@ -17,7 +17,6 @@ import json
 import time
 import getpass
 import hashlib
-import facebook
 import requests
 
 
