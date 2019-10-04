@@ -64,9 +64,8 @@ def scrap_groups():
 def delete_post():
 	try:
 		token = open('cookie/token.log','r').read()
-    	mlebu = requests.get('https://graph.facebook.com/me/post?access_token='+token)
+    		mlebu = requests.get('https://graph.facebook.com/me/post?access_token='+token)
 		a = json.loads(mlebu.text)
-	try:
 		for i in a['data']:
 			kirimane = requests.post('https://graph.facebook.com/v3.0/'+i['id']+'?method=delete&access_token='+token)
 			mbusek = kirimane ['error']['message']
