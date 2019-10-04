@@ -59,7 +59,7 @@ def id():
         get(data)
 
 ############################################################
-def hapus_postingan:
+def hapus_postingan():
 	global token
 	print ('\r[*] All post id successfully retrieved          ')
 	print ('[*] Start')
