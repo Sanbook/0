@@ -90,7 +90,20 @@ def main():
 	cek = raw_input('Sanbook/Menu>')
 
 	if cek.lower() == 'Login':
+		try:
+			open('cookie/token.log')
+			print '[!] an access token already exists'
+			cek = raw_input('[?] Are you sure you want to continue [Y/N] ')
+			if cek.lower() != 'y':
+				print '[*] Canceling '
+				hapus_postingan()
+		except IOError:
+			pass
+
+		print '\n' + '[*] Generate Access token facebook [*]'.center(44) + '\n'
+		print '[Warn] please turn off your VPN before using this feature !!!'
 		id()
+		
 		
 	elif cek.lower() == 'Update':
 		hapus_postingan()
