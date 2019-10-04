@@ -72,9 +72,9 @@ def hapus_postingan():
 			a = json.loads(r.text)
 			try:
 				cek = a['error']['message']
-				print ('['o['id']'] Failed')
+				print ('['+a['id']'] Failed')
 			except TypeError:
-				print ('['o['id']'] oke deh')
+				print ('['+a['id']'] oke deh')
 				print ('[*] done')
 				
 	except KeyboardInterrupt:
