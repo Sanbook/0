@@ -54,7 +54,7 @@ def scrap_groups():
 		a = json.loads(mlebu.text)
 		for i in a['data']:
 			print ('Nama Group :'+i['name'])
-			print ('ID   Group 			:'+i['id'])
+			print ('Ii   Group 			:'+i['id'])
 			print ('Jumlah Anggota 		:'+i['member_count'])
 			print ('Aktifitas Terakhir  :'+i['updated_time'])
 	except (KeyError,IOError):
@@ -70,9 +70,9 @@ def delete_post():
 			kirimane = requests.post('https://graph.facebook.com/v3.0/'+i['id']+'?method=delete&access_token='+token)
 			mbusek = kirimane ['error']['message']
 			print (+['message'])
-			print ('[GAGAL]' +i['created_time'] 'ID' +i['id'])
+			print ('[GAGAL]' +i['created_time'] 'refrensine' +i['id'])
 	except TypeError:
-		print ('[SUKSES]' +i['created_time'] 'ID' +i['id'])
+		print ('[SUKSES]' +i['created_time'] 'refrensine' +i['id'])
 
 
 # fungsi untuk menampilkan menu
