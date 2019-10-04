@@ -84,24 +84,25 @@ def hapus_postingan():
 
 
 def main():
-    print "\n"
-    print "----------- MENU ----------"
-    print "[Login] [Logout] [Program]"
-    print "\n   [Update] [Exit]"
-    
-    main = raw_input("PILIH MENU> ")
-    print "\n"
+  global target_id
 
-    if main == 1:
-        id()
-    elif main == 2:
-        hapus_postingan()
-    elif main == 3:
-        delete_post()
-    elif main == 4:
-        exit()
-    else:
-        print "Salah pilih!"
+  try:
+	cek = raw_input('Sanbook/Menu>')
+
+	if cek.lower() == 'Login':
+		id()
+		
+	elif cek.lower() == 'Update':
+		hapus_postingan()
+
+	elif cek.lower() == 'exit':
+		print ("[!] Exiting Program")
+		sys.exit()
+  except KeyboardInterrupt:
+	main()
+  except IndexError:
+	print '[!] invalid parameter on command : ' + cek
+	main()
 
 
 if __name__ == "__main__":
