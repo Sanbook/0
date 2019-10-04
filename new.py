@@ -38,12 +38,12 @@ def login_api():
 
 	except KeyError:
 
-		print(m+'['+p+'×'+m+'] Failed please cek your account and try again')
+		print ('Failed please cek your account and try again')
 		os.system('rm -rf cookie/token.log')
 
 	except requests.exceptions.ConnectionError:
 
-		print(' No connection')
+		print (' No connection')
 
 
 # fungsi untuk menambah data
@@ -70,20 +70,20 @@ def delete_post():
 		for i in a['data']:
 			kirimane = requests.post('https://graph.facebook.com/v3.0/'+i['id']+'?method=delete&access_token='+token)
 			mbusek = kirimane ['error']['message']
-			print(+['message'])
-			print('[GAGAL]' +i['created_time'] 'ID' +i['id'])
+			print (+['message'])
+			print ('[GAGAL]' +i['created_time'] 'ID' +i['id'])
 	except TypeError:
-		print('[SUKSES]' +i['created_time'] 'ID' +i['id'])
+		print ('[SUKSES]' +i['created_time'] 'ID' +i['id'])
 
 
 # fungsi untuk menampilkan menu
 def menu():
-    print "\n"
-    print "----------- MENU ----------"
-    print "[1] Login"
-    print "[2] View Groups"
-    print "[3] Delete Post"
-    print "[4] Exit"
+    print ("\n")
+    print ("----------- MENU ----------")
+    print ("[1] Login")
+    print ("[2] View Groups")
+    print ("[3] Delete Post")
+    print ("[4] Exit")
     
     menu = input("PILIH MENU> ")
     print "\n"
