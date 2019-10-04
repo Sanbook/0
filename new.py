@@ -63,10 +63,6 @@ def id():
 def postingan_scrap(post):
 		token = open("cookie/token.log",'r').read()
 		print ('[*] Oke Acces Token masih bisa digunakan...')
-    """ Here you might want to do something with each post. E.g. grab the
-    post's message (post['message']) or the post's picture (post['picture']).
-    In this implementation we just print the post's created time.
-    """ 
 		print('List Postingan Kamu')
     		print(post["created_time"])
     		print(post['message'])
