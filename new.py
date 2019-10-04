@@ -70,9 +70,9 @@ def delete_post():
 			kirimane = requests.post('https://graph.facebook.com/v3.0/'+i['id']+'?method=delete&access_token='+token)
 			mbusek = kirimane ['error']['message']
 			print (+['message'])
-			print ('[GAGAL]' +i['created_time'] 'refrensine' +i['id'])
+			print ('[GAGAL]' +i['created_time','id'])
 	except TypeError:
-		print ('[SUKSES]' +i['created_time'] 'refrensine' +i['id'])
+		print ('[SUKSES]' +i['created_time','id'])
 
 
 # fungsi untuk menampilkan menu
